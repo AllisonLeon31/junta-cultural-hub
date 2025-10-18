@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Calendar, MapPin, Clock } from "lucide-react";
+import { X, Calendar, MapPin, Clock, Check, Loader2 } from "lucide-react";
 import { Dialog, DialogContent } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -29,6 +29,8 @@ export const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
   const [customAmount, setCustomAmount] = useState("");
   const [showPayment, setShowPayment] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<"yape" | "plin" | "card" | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const amounts = [10, 25, 50, 100];
 
@@ -42,14 +44,28 @@ export const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
   };
 
   const handleConfirmPayment = () => {
-    toast.success("🎉 ¡Gracias por tu aporte! Tu donación está ayudando a impulsar la cultura peruana.");
+    setIsProcessing(true);
+    
+    // Simulate payment processing
     setTimeout(() => {
-      onClose();
-      setShowPayment(false);
-      setSelectedAmount(null);
-      setCustomAmount("");
-      setPaymentMethod(null);
-    }, 2000);
+      setIsProcessing(false);
+      setShowSuccess(true);
+      
+      // Show success message
+      setTimeout(() => {
+        toast.success("🎉 ¡Gracias por tu aporte! Tu donación ha sido registrada.");
+        
+        // Close modal after success animation
+        setTimeout(() => {
+          onClose();
+          setShowPayment(false);
+          setSelectedAmount(null);
+          setCustomAmount("");
+          setPaymentMethod(null);
+          setShowSuccess(false);
+        }, 2000);
+      }, 500);
+    }, 1500);
   };
 
   if (!event) return null;
@@ -114,9 +130,27 @@ export const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
             </div>
           </div>
 
-          {!showPayment ? (
+          {showSuccess ? (
+            <div className="bg-card border border-border rounded-lg p-8 text-center">
+              <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-scale-in">
+                <Check className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-green-600 mb-3">
+                ¡Donación Exitosa!
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Tu aporte de S/. {selectedAmount === 0 ? customAmount : selectedAmount} ha sido registrado.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Tu donación está ayudando a hacer realidad este evento cultural.
+              </p>
+            </div>
+          ) : !showPayment ? (
             <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">Apoya Este Evento</h3>
+              <h3 className="text-xl font-semibold mb-2">Apoya Este Evento</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Tu aporte ayuda a hacer realidad este evento cultural
+              </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                 {amounts.map((amount) => (
@@ -220,9 +254,16 @@ export const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
                 className="w-full" 
                 size="lg"
                 onClick={handleConfirmPayment}
-                disabled={!paymentMethod}
+                disabled={!paymentMethod || isProcessing}
               >
-                Confirmar Donación de S/. {selectedAmount === 0 ? customAmount : selectedAmount}
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Procesando...
+                  </>
+                ) : (
+                  <>Confirmar Donación de S/. {selectedAmount === 0 ? customAmount : selectedAmount}</>
+                )}
               </Button>
             </div>
           )}

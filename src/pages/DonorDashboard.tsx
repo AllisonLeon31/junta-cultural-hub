@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Heart } from "lucide-react";
+import { ArrowLeft, Heart, TrendingUp, Calendar, MessageCircle } from "lucide-react";
 import { EventModal } from "@/components/EventModal";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const mockDonations = [
   {
@@ -44,6 +46,10 @@ const DonorDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const userEmail = localStorage.getItem("userEmail") || "usuario@email.com";
   const totalDonated = mockDonations.reduce((sum, d) => sum + d.amount, 0);
+  const eventsSupported = mockDonations.length;
+  const avgProgress = Math.round(
+    mockDonations.reduce((sum, d) => sum + d.progress, 0) / mockDonations.length
+  );
 
   const handleLogout = () => {
     localStorage.removeItem("userType");
@@ -57,51 +63,61 @@ const DonorDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-secondary">
-      {/* Header */}
-      <header className="gradient-hero text-white">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button
-                variant="ghost"
-                className="text-white hover:bg-white/10"
-                onClick={() => navigate("/")}
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Inicio
-              </Button>
-              <h1 className="text-2xl font-bold">Panel de Donador</h1>
+    <div className="min-h-screen flex flex-col bg-secondary">
+      <Header />
+      
+      <main className="flex-1 pt-20">
+        {/* Hero Section */}
+        <section className="gradient-hero text-white py-12">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <Heart className="h-8 w-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold">Mi Impacto</h1>
+                <p className="text-white/90">{userEmail}</p>
+              </div>
             </div>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={handleLogout}
-            >
-              Cerrar sesión
-            </Button>
-          </div>
-        </div>
-      </header>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Welcome Card */}
-        <Card className="p-6 mb-8 shadow-card">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-              <Heart className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold">¡Hola, Donador!</h2>
-              <p className="text-muted-foreground">{userEmail}</p>
-            </div>
-          </div>
-          <div className="bg-secondary p-4 rounded-lg">
-            <p className="text-sm text-muted-foreground mb-1">Total donado</p>
-            <p className="text-3xl font-bold text-primary">S/. {totalDonated}</p>
-          </div>
-        </Card>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card className="p-6 bg-white/10 backdrop-blur-sm border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <Heart className="h-5 w-5 text-white" />
+                  <p className="text-white/80 text-sm">Total Donado</p>
+                </div>
+                <p className="text-3xl font-bold text-white">S/. {totalDonated}</p>
+              </Card>
 
+              <Card className="p-6 bg-white/10 backdrop-blur-sm border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <Calendar className="h-5 w-5 text-white" />
+                  <p className="text-white/80 text-sm">Eventos Apoyados</p>
+                </div>
+                <p className="text-3xl font-bold text-white">{eventsSupported}</p>
+              </Card>
+
+              <Card className="p-6 bg-white/10 backdrop-blur-sm border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <TrendingUp className="h-5 w-5 text-white" />
+                  <p className="text-white/80 text-sm">Avance Promedio</p>
+                </div>
+                <p className="text-3xl font-bold text-white">{avgProgress}%</p>
+              </Card>
+
+              <Card className="p-6 bg-white/10 backdrop-blur-sm border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <MessageCircle className="h-5 w-5 text-white" />
+                  <p className="text-white/80 text-sm">Mensajes</p>
+                </div>
+                <p className="text-3xl font-bold text-white">3</p>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <div className="container mx-auto px-4 py-8">
         {/* Donations List */}
         <div className="mb-6">
           <h3 className="text-2xl font-semibold mb-4">Mis Donaciones</h3>
@@ -171,11 +187,14 @@ const DonorDashboard = () => {
         </Card>
       </div>
 
-      <EventModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        event={selectedEvent}
-      />
+        <EventModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          event={selectedEvent}
+        />
+      </main>
+
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EventCard } from "@/components/EventCard";
 import { EventModal } from "@/components/EventModal";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Search, Plus, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -83,39 +85,65 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <header className="gradient-hero text-white relative overflow-hidden">
-        <div className="container mx-auto px-4 py-12 md:py-20">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Junta.pe</h1>
-            <p className="text-2xl md:text-3xl font-semibold mb-4">
-              Financiamos cultura. Impulsamos impacto.
-            </p>
-            <p className="text-lg md:text-xl mb-8 opacity-95 max-w-2xl mx-auto">
-              Una plataforma colaborativa que une a creadores y donadores para hacer realidad proyectos culturales y sociales.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90 font-semibold"
-                onClick={() => navigate("/promoter-login")}
-              >
-                <Plus className="mr-2 h-5 w-5" />
-                Crea un Evento
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary font-semibold"
-                onClick={() => navigate("/donor-login")}
-              >
-                <Heart className="mr-2 h-5 w-5" />
-                Dona a un Evento
-              </Button>
+      <Header />
+      
+      {/* Hero Section with Video */}
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden mt-16">
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source
+              src="https://cdn.pixabay.com/video/2022/07/15/123785-730744530_large.mp4"
+              type="video/mp4"
+            />
+          </video>
+          {/* Purple Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/60 to-primary/50" />
+        </div>
+
+        {/* Content */}
+        <div className="relative h-full flex items-center justify-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                Junta.pe
+              </h1>
+              <p className="text-2xl md:text-4xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                Financiamos cultura. Impulsamos impacto.
+              </p>
+              <p className="text-lg md:text-xl mb-10 opacity-95 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                Conectamos a creadores y donadores para hacer realidad proyectos
+                culturales y sociales que transforman comunidades.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg h-14 px-8"
+                  onClick={() => navigate("/promoter-login")}
+                >
+                  <Plus className="mr-2 h-5 w-5" />
+                  Crea un evento
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary font-semibold h-14 px-8"
+                  onClick={() => navigate("/donor-login")}
+                >
+                  <Heart className="mr-2 h-5 w-5" />
+                  Dona a un evento
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Search and Categories */}
       <section className="bg-secondary py-8">
@@ -221,12 +249,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="gradient-hero text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-lg font-medium">Junta.pe – Cultura que une.</p>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Event Modal */}
       <EventModal
