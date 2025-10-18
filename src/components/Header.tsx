@@ -1,26 +1,34 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const userType = localStorage.getItem("userType");
-  const userEmail = localStorage.getItem("userEmail");
+  
+  // Safely get user data
+  const userType = typeof window !== 'undefined' ? localStorage.getItem("userType") : null;
+  const userEmail = typeof window !== 'undefined' ? localStorage.getItem("userEmail") : null;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("userType");
-    localStorage.removeItem("userEmail");
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem("userType");
+      localStorage.removeItem("userEmail");
+    }
     navigate("/");
   };
 
@@ -106,7 +114,7 @@ export const Header = () => {
                   variant="ghost"
                   size="sm"
                   onClick={handleLogout}
-                  className={isScrolled ? "" : "text-white hover:text-white"}
+                  className={isScrolled ? "" : "text-white hover:bg-white/10"}
                 >
                   Salir
                 </Button>
