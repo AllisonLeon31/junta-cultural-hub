@@ -1,6 +1,7 @@
 import { Calendar, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface EventCardProps {
   id: string;
@@ -12,6 +13,8 @@ interface EventCardProps {
   image: string;
   progress: number;
   donors: number;
+  goal?: number;
+  raised?: number;
   onViewDetails: (id: string) => void;
 }
 
@@ -27,6 +30,7 @@ export const EventCard = ({
   donors,
   onViewDetails,
 }: EventCardProps) => {
+  const navigate = useNavigate();
   return (
     <Card className="overflow-hidden shadow-card hover:shadow-card-hover transition-smooth cursor-pointer group">
       <div className="relative overflow-hidden">
@@ -43,7 +47,12 @@ export const EventCard = ({
       </div>
       
       <div className="p-5">
-        <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
+        <h3 
+          className="text-xl font-semibold mb-2 text-foreground cursor-pointer hover:text-primary transition-colors"
+          onClick={() => navigate(`/evento/${id}`)}
+        >
+          {title}
+        </h3>
         <p className="text-muted-foreground text-sm mb-4">{subtitle}</p>
         
         <div className="space-y-2 mb-4">
@@ -71,12 +80,21 @@ export const EventCard = ({
           <p className="text-xs text-muted-foreground mt-2">{donors} donadores</p>
         </div>
         
-        <Button 
-          className="w-full" 
-          onClick={() => onViewDetails(id)}
-        >
-          Ver Detalles
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            className="flex-1 shadow-sm" 
+            variant="outline"
+            onClick={() => navigate(`/evento/${id}`)}
+          >
+            Más información
+          </Button>
+          <Button 
+            className="flex-1 shadow-sm" 
+            onClick={() => onViewDetails(id)}
+          >
+            Donar
+          </Button>
+        </div>
       </div>
     </Card>
   );

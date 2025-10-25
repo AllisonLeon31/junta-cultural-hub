@@ -18,46 +18,49 @@ const categories = [
 
 const mockEvents = [
   {
-    id: "1",
+    id: "festival-jazz-verano",
     title: "Festival de Jazz de Verano",
-    subtitle: "Una noche mágica con los mejores artistas de jazz",
+    subtitle: "Una noche bajo las estrellas",
     category: "Música",
     date: "15 de Enero, 2025",
-    time: "20:00",
-    location: "Centro Cultural Lima",
-    image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800&h=600&fit=crop",
-    description: "Disfruta de una velada excepcional con los mejores exponentes del jazz peruano e internacional. Una experiencia única bajo las estrellas.",
+    time: "19:00",
+    location: "Parque de la Exposición, Lima",
+    image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
+    description: "Únete a nosotros para una velada mágica de jazz en vivo bajo el cielo nocturno de Lima.",
     progress: 65,
-    donors: 28,
-    goal: 5000,
+    donors: 127,
+    goal: 15000,
+    raised: 9750,
   },
   {
-    id: "2",
+    id: "noche-comedia-stand-up",
     title: "Noche de Comedia Stand-Up",
-    subtitle: "Risas aseguradas con los mejores comediantes",
+    subtitle: "Risas y buen humor garantizado",
     category: "Comedia",
     date: "20 de Enero, 2025",
-    time: "21:00",
-    location: "Teatro Municipal",
-    image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800&h=600&fit=crop",
-    description: "Una noche llena de humor con los comediantes más destacados del momento. Prepárate para reír sin parar.",
-    progress: 45,
-    donors: 15,
-    goal: 3000,
+    time: "20:00",
+    location: "Teatro Municipal, Miraflores",
+    image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800",
+    description: "Los mejores comediantes nacionales e internacionales reunidos en una noche llena de risas.",
+    progress: 70,
+    donors: 89,
+    goal: 8000,
+    raised: 5600,
   },
   {
-    id: "3",
+    id: "romeo-julieta-version-moderna",
     title: "Romeo y Julieta: Versión Moderna",
-    subtitle: "Clásico shakesperiano reimaginado",
+    subtitle: "Teatro clásico con un twist contemporáneo",
     category: "Teatro",
-    date: "25 de Enero, 2025",
-    time: "19:30",
-    location: "Teatro Segura",
-    image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&h=600&fit=crop",
-    description: "Una adaptación contemporánea del clásico de Shakespeare que te dejará sin aliento. Arte en su máxima expresión.",
-    progress: 80,
-    donors: 42,
-    goal: 8000,
+    date: "5 de Febrero, 2025",
+    time: "18:00",
+    location: "Teatro Segura, Centro de Lima",
+    image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800",
+    description: "Una reinterpretación moderna del clásico de Shakespeare ambientada en el Lima actual.",
+    progress: 70,
+    donors: 104,
+    goal: 12000,
+    raised: 8400,
   },
 ];
 
@@ -87,60 +90,53 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section with Video */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden mt-16">
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* Video Background */}
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source
-              src="https://cdn.pixabay.com/video/2022/07/15/123785-730744530_large.mp4"
-              type="video/mp4"
-            />
-          </video>
-          {/* Purple Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/60 to-primary/50" />
-        </div>
-
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://cdn.pixabay.com/video/2022/11/27/141041-776486984_large.mp4"
+            type="video/mp4"
+          />
+        </video>
+        
+        {/* Purple Gradient Overlay - from top (60% opacity) to bottom (transparent) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-transparent"></div>
+        
         {/* Content */}
-        <div className="relative h-full flex items-center justify-center">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-                Junta.pe
-              </h1>
-              <p className="text-2xl md:text-4xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                Financiamos cultura. Impulsamos impacto.
-              </p>
-              <p className="text-lg md:text-xl mb-10 opacity-95 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                Conectamos a creadores y donadores para hacer realidad proyectos
-                culturales y sociales que transforman comunidades.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg h-14 px-8"
-                  onClick={() => navigate("/promoter-login")}
-                >
-                  <Plus className="mr-2 h-5 w-5" />
-                  Crea un evento
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary font-semibold h-14 px-8"
-                  onClick={() => navigate("/donor-login")}
-                >
-                  <Heart className="mr-2 h-5 w-5" />
-                  Dona a un evento
-                </Button>
-              </div>
-            </div>
+        <div className="container mx-auto px-4 relative z-10 text-center text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-lg">
+            Junta.pe
+          </h1>
+          <p className="text-2xl md:text-3xl mb-4 animate-fade-in drop-shadow-md" style={{ animationDelay: '0.2s' }}>
+            Financiamos cultura. Impulsamos impacto.
+          </p>
+          <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto animate-fade-in drop-shadow-md" style={{ animationDelay: '0.4s' }}>
+            Conectamos a creadores y donadores para hacer realidad proyectos culturales y sociales que transforman comunidades.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <Button
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 shadow-lg"
+              onClick={() => navigate("/user-select")}
+            >
+              <Plus className="mr-2 h-5 w-5" />
+              Crea un evento
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm"
+            >
+              <Heart className="mr-2 h-5 w-5" />
+              Dona a un evento
+            </Button>
           </div>
         </div>
       </section>
