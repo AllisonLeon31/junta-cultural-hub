@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { EventModal } from "@/components/EventModal";
 import { Calendar, MapPin, Users, Clock, ArrowLeft } from "lucide-react";
 
-// Mock event data (in real app, fetch from API)
+// Mock event data matching Index.tsx IDs
 const mockEvents = [
   // Música
   {
@@ -15,7 +15,7 @@ const mockEvents = [
     title: "Festival de Jazz de Verano",
     subtitle: "Una noche bajo las estrellas",
     category: "Música",
-    date: "2025-02-15",
+    date: "2025-01-15",
     time: "19:00",
     location: "Parque de la Exposición, Lima",
     image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
@@ -35,13 +35,6 @@ Más que un concierto, es una celebración de la música, la comunidad y la cult
 **Equipo organizador:**
 Somos un grupo de productores culturales con más de 15 años de experiencia en la organización de eventos musicales. Nuestro compromiso es llevar cultura de calidad a todos los rincones de Lima.
 
-**Por qué necesitamos tu apoyo:**
-Los fondos recaudados se destinarán a:
-- Escenario y sistema de sonido profesional (40%)
-- Honorarios de artistas (35%)
-- Producción y logística (15%)
-- Difusión y marketing (10%)
-
 Tu contribución no solo hace posible este evento, también apoya el desarrollo de la escena cultural peruana y brinda oportunidades a artistas locales.`,
     goal: 15000,
     raised: 9750,
@@ -49,152 +42,128 @@ Tu contribución no solo hace posible este evento, también apoya el desarrollo 
     daysLeft: 12,
   },
   {
-    id: "concierto-rock-independiente",
-    title: "Concierto Rock Independiente",
-    subtitle: "Bandas emergentes peruanas",
+    id: "concierto-rock-nacional",
+    title: "Concierto de Rock Nacional",
+    subtitle: "Las mejores bandas peruanas en un solo escenario",
     category: "Música",
-    date: "2025-02-22",
-    time: "20:30",
-    location: "La Noche de Barranco, Lima",
-    image: "https://images.unsplash.com/photo-1501612780327-45045538702b?w=800",
+    date: "2025-01-22",
+    time: "20:00",
+    location: "Estadio Nacional, Lima",
+    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800",
     videoUrl: "",
-    description: "Una noche de rock peruano con las bandas independientes más prometedoras del momento.",
-    fullDescription: `El Concierto Rock Independiente reúne a las bandas emergentes más talentosas de la escena rock peruana para una noche de música auténtica y rebelde.
+    description: "Una celebración del rock peruano con las bandas más icónicas del país.",
+    fullDescription: `El Concierto de Rock Nacional reúne a las bandas más legendarias del rock peruano para una noche épica que celebra décadas de música nacional.
 
 **Sobre el evento:**
-El rock peruano vive un momento de efervescencia. Nuevas bandas están surgiendo con propuestas frescas que fusionan el rock clásico con sonidos contemporáneos y raíces andinas.
+El rock peruano tiene una historia rica y poderosa. Este concierto rinde homenaje a esa tradición mientras celebra su evolución contemporánea.
 
 **Bandas confirmadas:**
-- Los Outsiders
-- Neon Souls
-- Piedra Angular
-- Eco del Vacío
+- Libido
+- Mar de Copas
+- Inyectores
+- TK
+- Dolores Delirio
 
 **Nuestra visión:**
-Queremos crear un espacio permanente para que las bandas independientes puedan compartir su música con un público más amplio, sin depender de grandes productoras.
+Crear un espacio donde generaciones de fanáticos del rock puedan reunirse y celebrar la música que ha marcado sus vidas.
 
-**Inversión de fondos:**
-- Alquiler del local y permisos (30%)
-- Equipos de sonido e iluminación (35%)
-- Honorarios de bandas (25%)
-- Producción y marketing (10%)
-
-Tu apoyo impulsa la escena rock independiente peruana y ayuda a que más personas descubran estos increíbles talentos.`,
-    goal: 8000,
-    raised: 3600,
-    donors: 89,
+Este evento preserva y difunde el legado del rock peruano entre nuevas audiencias.`,
+    goal: 20000,
+    raised: 11000,
+    donors: 98,
     daysLeft: 19,
   },
   {
-    id: "festival-musica-andina",
-    title: "Festival de Música Andina",
-    subtitle: "Celebrando nuestras raíces",
+    id: "festival-musica-electronica",
+    title: "Festival de Música Electrónica",
+    subtitle: "DJs internacionales en Lima",
     category: "Música",
-    date: "2025-03-08",
-    time: "16:00",
-    location: "Plaza de Armas, Cusco",
-    image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800",
-    videoUrl: "https://www.youtube.com/embed/IgQfUPC79tY",
-    description: "Un homenaje a la música tradicional andina con los mejores intérpretes de la región.",
-    fullDescription: `El Festival de Música Andina es una celebración de nuestra herencia cultural y musical que ha trascendido generaciones.
-
-**Sobre el evento:**
-La música andina es el alma de nuestros pueblos. En este festival reuniremos a maestros y jóvenes intérpretes para mostrar la riqueza de nuestras tradiciones musicales y su evolución contemporánea.
-
-**Artistas confirmados:**
-- Los Kjarkas
-- Alborada
-- Savia Andina
-- Proyección Andina
-
-**Objetivo cultural:**
-Más allá del espectáculo, este festival busca preservar y difundir la música andina entre las nuevas generaciones, mostrando su relevancia y belleza en el mundo actual.
-
-**Distribución del presupuesto:**
-- Honorarios de artistas (40%)
-- Escenario y sonido (30%)
-- Logística y producción (20%)
-- Talleres educativos gratuitos (10%)
-
-Con tu apoyo, mantenemos vivas nuestras tradiciones y las compartimos con el mundo.`,
-    goal: 10000,
-    raised: 7800,
-    donors: 156,
-    daysLeft: 28,
-  },
-  {
-    id: "noche-musica-electronica",
-    title: "Noche de Música Electrónica",
-    subtitle: "DJs nacionales e internacionales",
-    category: "Música",
-    date: "2025-03-18",
+    date: "2025-01-28",
     time: "22:00",
-    location: "Centro de Convenciones, Lima",
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800",
+    location: "Costa Verde, Miraflores",
+    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
     videoUrl: "",
-    description: "Una experiencia audiovisual única con los mejores DJs de la escena electrónica.",
-    fullDescription: `La Noche de Música Electrónica promete ser el evento más esperado del año para los amantes de la música electrónica en Perú.
+    description: "Una experiencia única con los mejores DJs y productores de música electrónica del mundo.",
+    fullDescription: `El Festival de Música Electrónica promete ser el evento más esperado del año para los amantes de la música electrónica en Perú.
 
 **Sobre el evento:**
-Transformaremos el Centro de Convenciones en una experiencia inmersiva con visuales 360°, iluminación láser de última generación y un sistema de sonido que hará vibrar cada rincón del recinto.
+Transformaremos la Costa Verde en una experiencia inmersiva con visuales 360°, iluminación láser de última generación y un sistema de sonido que hará vibrar cada rincón del espacio.
 
 **Line-up:**
 - DJ Hernán Cattáneo (Argentina)
 - Adriana Lopez (Colombia)
-- Fabrizio Mammarella (Italia)
+- Nicole Moudaber (Reino Unido)
 - Selección de DJs locales
 
 **Producción de clase mundial:**
 Este evento contará con producción técnica internacional, incluyendo mapping 3D, efectos especiales y una experiencia sensorial completa.
 
-**Inversión de fondos:**
-- Honorarios de DJs (45%)
-- Producción técnica y visual (35%)
-- Alquiler del espacio (12%)
-- Marketing y difusión (8%)
-
 Apoya la escena electrónica peruana y sé parte de una noche inolvidable.`,
-    goal: 12000,
-    raised: 3600,
-    donors: 62,
-    daysLeft: 38,
+    goal: 25000,
+    raised: 20000,
+    donors: 215,
+    daysLeft: 26,
   },
   {
-    id: "festival-salsa-peru",
-    title: "Festival de Salsa Peruana",
-    subtitle: "El sabor que nos une",
+    id: "noche-salsa-timba",
+    title: "Noche de Salsa y Timba",
+    subtitle: "Baile y sabor caribeño",
     category: "Música",
-    date: "2025-03-25",
-    time: "18:00",
-    location: "Explanada de la Marina, Callao",
-    image: "https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=800",
+    date: "2025-02-08",
+    time: "21:00",
+    location: "Club Social Lima, Barranco",
+    image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800",
     videoUrl: "",
-    description: "La mejor salsa peruana en un solo lugar, con orquestas legendarias y nuevas promesas.",
-    fullDescription: `El Festival de Salsa Peruana rinde homenaje a uno de los géneros más queridos y bailables de nuestra cultura popular.
+    description: "Una noche llena de ritmo con las mejores orquestas de salsa y timba.",
+    fullDescription: `La Noche de Salsa y Timba rinde homenaje a uno de los géneros más queridos y bailables de nuestra cultura latina.
 
 **Sobre el evento:**
-El Callao es la cuna de la salsa peruana, y qué mejor lugar que la Explanada de la Marina para celebrar este género que nos hace mover las caderas y el corazón.
+El sabor de la salsa y la timba nos hace mover las caderas y el corazón. Esta noche especial celebra la música que nos une y nos hace celebrar la vida.
 
 **Orquestas confirmadas:**
 - Orquesta Candela
-- La Tribu de los Gorilas
-- Zaperoko
-- Invitados especiales desde Nueva York
+- La Tribu
+- Invitados especiales desde Cuba
 
 **Experiencia completa:**
-Además de los conciertos, habrá clases de baile gratuitas, concursos de salsa y una feria gastronómica con lo mejor de la cocina chalaca.
-
-**Presupuesto:**
-- Honorarios de orquestas (40%)
-- Escenario y sonido (25%)
-- Producción y logística (20%)
-- Actividades paralelas (15%)
+Además de los conciertos, habrá clases de baile gratuitas, concursos de salsa y una atmósfera festiva única.
 
 Con tu aporte, celebramos la salsa que corre por nuestras venas y la compartimos con todos.`,
-    goal: 9000,
-    raised: 4950,
-    donors: 98,
-    daysLeft: 45,
+    goal: 10000,
+    raised: 4500,
+    donors: 76,
+    daysLeft: 36,
+  },
+  {
+    id: "recital-musica-clasica",
+    title: "Recital de Música Clásica",
+    subtitle: "Orquesta Sinfónica Nacional",
+    category: "Música",
+    date: "2025-02-12",
+    time: "19:30",
+    location: "Gran Teatro Nacional, San Borja",
+    image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800",
+    videoUrl: "",
+    description: "Una velada con las obras maestras de Beethoven, Mozart y compositores peruanos.",
+    fullDescription: `El Recital de Música Clásica presenta una selección de obras maestras interpretadas por la Orquesta Sinfónica Nacional del Perú.
+
+**Sobre el evento:**
+La música clásica es patrimonio universal de la humanidad. Esta velada nos permite conectar con las emociones más profundas a través de composiciones inmortales.
+
+**Programa:**
+- Sinfonía No. 5 de Beethoven
+- Una Pequeña Serenata Nocturna de Mozart
+- Obra de compositor peruano contemporáneo
+- Piezas de Tchaikovsky
+
+**Director invitado:**
+Maestro internacional con reconocimiento en las principales salas de conciertos del mundo.
+
+Este evento hace accesible la música clásica de calidad para todos los peruanos.`,
+    goal: 18000,
+    raised: 16200,
+    donors: 156,
+    daysLeft: 40,
   },
 
   // Comedia
@@ -203,7 +172,7 @@ Con tu aporte, celebramos la salsa que corre por nuestras venas y la compartimos
     title: "Noche de Comedia Stand-Up",
     subtitle: "Risas y buen humor garantizado",
     category: "Comedia",
-    date: "2025-02-20",
+    date: "2025-01-20",
     time: "20:00",
     location: "Teatro Municipal, Miraflores",
     image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800",
@@ -223,30 +192,24 @@ El stand-up comedy es un arte que requiere valentía, creatividad y conexión ge
 **Nuestra misión:**
 Queremos democratizar el acceso a la cultura del humor. Por eso, el 20% de las entradas serán distribuidas gratuitamente a comunidades con menor acceso a eventos culturales.
 
-**Inversión de fondos:**
-- Alquiler del teatro (30%)
-- Honorarios de artistas (40%)
-- Producción técnica (20%)
-- Programa de entradas gratuitas (10%)
-
 Apoyar este evento significa apostar por el talento peruano y hacer que más personas puedan disfrutar de una noche de entretenimiento de calidad.`,
     goal: 8000,
     raised: 5600,
     donors: 89,
-    daysLeft: 18,
+    daysLeft: 8,
   },
   {
-    id: "improvisacion-comedy-club",
-    title: "Comedy Club: Improvisación",
-    subtitle: "Teatro improvisado sin límites",
+    id: "improvisacion-comedia",
+    title: "Show de Improvisación",
+    subtitle: "Comedia sin guión",
     category: "Comedia",
-    date: "2025-02-27",
+    date: "2025-01-25",
     time: "21:00",
-    location: "Café Teatro La Plaza, Miraflores",
+    location: "La Estación de Barranco",
     image: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=800",
     videoUrl: "",
-    description: "Comedia improvisada donde el público decide el rumbo de cada escena.",
-    fullDescription: `Comedy Club: Improvisación es un espectáculo único donde nada está escrito y todo puede pasar.
+    description: "Un espectáculo único donde los comediantes crean historias en el momento basadas en sugerencias del público.",
+    fullDescription: `Show de Improvisación es un espectáculo único donde nada está escrito y todo puede pasar.
 
 **Sobre el evento:**
 La improvisación teatral es el arte de crear historias en el momento, sin guión ni red de seguridad. Nuestros improvisadores tomarán sugerencias del público para crear escenas hilarantes y únicas cada noche.
@@ -259,125 +222,102 @@ La improvisación teatral es el arte de crear historias en el momento, sin guió
 **Formato innovador:**
 El público participará activamente sugiriendo temas, personajes y situaciones. Ninguna función será igual a la anterior.
 
-**Distribución del presupuesto:**
-- Honorarios del elenco (35%)
-- Alquiler del espacio (30%)
-- Producción y utilería (20%)
-- Talleres comunitarios (15%)
-
 Tu apoyo hace posible este formato de comedia única en Lima y ayuda a desarrollar el arte de la improvisación.`,
-    goal: 5000,
-    raised: 2000,
-    donors: 54,
-    daysLeft: 25,
+    goal: 6000,
+    raised: 3600,
+    donors: 67,
+    daysLeft: 13,
   },
   {
-    id: "festival-humor-latino",
-    title: "Festival de Humor Latino",
-    subtitle: "Comediantes de toda Latinoamérica",
+    id: "comedia-mujeres",
+    title: "Noche de Comediantes Mujeres",
+    subtitle: "Voces femeninas del humor peruano",
     category: "Comedia",
-    date: "2025-03-10",
+    date: "2025-02-02",
     time: "19:30",
-    location: "Teatro Británico, Lima",
-    image: "https://images.unsplash.com/photo-1516981879613-9f5da904015fe?w=800",
-    videoUrl: "",
-    description: "Un encuentro de las mejores voces del humor latinoamericano.",
-    fullDescription: `El Festival de Humor Latino celebra la diversidad y riqueza del humor de nuestra región, reuniendo a comediantes de diferentes países para compartir sus perspectivas únicas.
-
-**Sobre el evento:**
-El humor es un lenguaje universal que nos conecta. Este festival mostrará cómo cada país latinoamericano tiene su propia forma de hacer reír, pero todos compartimos las mismas raíces culturales.
-
-**Comediantes confirmados:**
-- Andrés López (Colombia)
-- Sofía Niño de Rivera (México)
-- Malena Pichot (Argentina)
-- Talentos peruanos
-
-**Visión del festival:**
-Crear un puente cultural a través del humor, mostrando que a pesar de nuestras diferencias, nos une mucho más de lo que nos separa.
-
-**Inversión de fondos:**
-- Honorarios internacionales (50%)
-- Alojamiento y logística (20%)
-- Alquiler del teatro (18%)
-- Producción y marketing (12%)
-
-Con tu donación, traemos las mejores voces del humor latinoamericano a Lima.`,
-    goal: 11000,
-    raised: 6820,
-    donors: 112,
-    daysLeft: 32,
-  },
-  {
-    id: "show-comedia-familiar",
-    title: "Show de Comedia Familiar",
-    subtitle: "Humor para toda la familia",
-    category: "Comedia",
-    date: "2025-03-17",
-    time: "17:00",
-    location: "Auditorio Miraflores, Lima",
+    location: "Teatro Británico, Miraflores",
     image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=800",
     videoUrl: "",
-    description: "Comedia limpia y divertida que pueden disfrutar desde niños hasta abuelos.",
-    fullDescription: `El Show de Comedia Familiar es un evento único diseñado para que toda la familia pueda reír junta en un ambiente seguro y acogedor.
+    description: "Celebramos el talento de las comediantes peruanas en una noche inolvidable.",
+    fullDescription: `Noche de Comediantes Mujeres celebra el talento femenino en el stand-up comedy peruano.
 
 **Sobre el evento:**
-Creemos que el humor de calidad no necesita ser vulgar para ser divertido. Este show presenta sketches, música y comedia que entretienen a todas las edades.
+Las mujeres están revolucionando el humor con perspectivas frescas, valientes y auténticas. Esta noche especial presenta las voces más originales y poderosas del humor femenino peruano.
 
-**Artistas:**
-- Payasos profesionales
-- Comediantes especializados en humor familiar
-- Músicos y malabaristas
+**Line-up:**
+- Luciana Ramos
+- Patricia "La Chola" Barraza
+- Andrea Quispe
+- Invitada internacional
 
-**Propuesta de valor:**
-En un mundo donde el entretenimiento familiar es escaso, este show ofrece una opción de calidad para pasar tiempo de calidad en familia.
+**Nuestra misión:**
+Crear espacios para que más mujeres se atrevan a hacer stand-up comedy y para que el público descubra estas increíbles talentos.
 
-**Presupuesto:**
-- Honorarios de artistas (40%)
-- Alquiler del auditorio (25%)
-- Producción y escenografía (20%)
-- Actividades interactivas (15%)
-
-Tu contribución ayuda a crear más opciones de entretenimiento familiar de calidad en Lima.`,
-    goal: 6500,
-    raised: 3250,
-    donors: 76,
-    daysLeft: 39,
+Este evento impulsa la diversidad en el humor peruano y abre puertas para nuevas generaciones.`,
+    goal: 7500,
+    raised: 5625,
+    donors: 102,
+    daysLeft: 21,
   },
   {
-    id: "comedia-por-buena-causa",
-    title: "Comedia por una Buena Causa",
-    subtitle: "Risas que ayudan",
+    id: "comedia-politica",
+    title: "Comedia Política: Sin Censura",
+    subtitle: "Risas con crítica social",
     category: "Comedia",
-    date: "2025-03-28",
+    date: "2025-02-10",
     time: "20:30",
-    location: "Club de la Unión, Lima",
-    image: "https://images.unsplash.com/photo-1555843645-a37cf0e1c4f4?w=800",
+    location: "Auditorio Miraflores",
+    image: "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800",
     videoUrl: "",
-    description: "Show benéfico donde las risas se convierten en ayuda para quienes más lo necesitan.",
-    fullDescription: `Comedia por una Buena Causa combina el humor con la solidaridad, destinando el 100% de lo recaudado a fundaciones que trabajan con niños en situación vulnerable.
+    description: "Sátira política y humor inteligente sobre la realidad peruana actual.",
+    fullDescription: `Comedia Política: Sin Censura presenta humor inteligente que reflexiona sobre nuestra realidad política y social.
 
 **Sobre el evento:**
-El humor tiene el poder de sanar y transformar. En este show benéfico, las risas del público se convertirán en sonrisas para niños que más lo necesitan.
+La sátira política es una tradición antigua pero más necesaria que nunca. En tiempos donde la libertad de expresión es fundamental, el humor se convierte en una forma de resistencia y reflexión.
 
-**Artistas participantes:**
-- Todos los comediantes donan su tiempo
-- Músicos invitados
-- Sorteos y subastas durante el evento
+**Comediantes:**
+- Especialistas en humor político
+- Satiristas reconocidos
+- Invitados sorpresa
 
-**Impacto social:**
-Los fondos recaudados se distribuirán entre tres fundaciones certificadas que trabajan con educación, salud y alimentación infantil.
+**Enfoque:**
+Sin miedo a decir lo que todos piensan, este show aborda temas de actualidad con humor inteligente y crítico.
 
-**Distribución transparente:**
-- Fundación Ayuda al Niño (40%)
-- Casa Hogar San José (35%)
-- Comedor Infantil Esperanza (25%)
+Tu apoyo defiende la libertad de expresión y el pensamiento crítico a través del humor.`,
+    goal: 5000,
+    raised: 2500,
+    donors: 58,
+    daysLeft: 29,
+  },
+  {
+    id: "monologos-lima",
+    title: "Monólogos desde Lima",
+    subtitle: "Historias reales con humor",
+    category: "Comedia",
+    date: "2025-02-16",
+    time: "20:00",
+    location: "Centro Cultural Ricardo Palma",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800",
+    videoUrl: "",
+    description: "Comediantes comparten sus experiencias más divertidas viviendo en Lima.",
+    fullDescription: `Monólogos desde Lima es una colección de historias reales contadas con humor sobre la experiencia de vivir en nuestra ciudad.
 
-Tu donación no solo te garantiza una noche de risas, sino que cambia vidas de manera directa y medible.`,
-    goal: 7000,
-    raised: 5950,
-    donors: 143,
-    daysLeft: 50,
+**Sobre el evento:**
+Lima es una ciudad de contrastes, caos y belleza. Estos monólogos capturan la esencia de lo que significa vivir aquí: el tráfico, la comida, los vecinos, las tradiciones y todo lo que nos hace limeños.
+
+**Formato:**
+- 6 comediantes, 6 historias diferentes
+- Cada monólogo de 15 minutos
+- Basado en experiencias reales
+
+**Conexión con el público:**
+Estas historias resonarán con cualquiera que haya vivido en Lima, creando momentos de identificación y risas compartidas.
+
+Este evento celebra nuestra identidad limeña con todo su humor y complejidad.`,
+    goal: 6500,
+    raised: 4225,
+    donors: 84,
+    daysLeft: 35,
   },
 
   // Teatro
@@ -386,7 +326,7 @@ Tu donación no solo te garantiza una noche de risas, sino que cambia vidas de m
     title: "Romeo y Julieta: Versión Moderna",
     subtitle: "Teatro clásico con un twist contemporáneo",
     category: "Teatro",
-    date: "2025-03-05",
+    date: "2025-02-05",
     time: "18:00",
     location: "Teatro Segura, Centro de Lima",
     image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800",
@@ -409,388 +349,298 @@ Utilizaremos proyecciones multimedia, música original de compositores peruanos 
 **Impacto social:**
 Parte de las funciones serán gratuitas para estudiantes de escuelas públicas, acompañadas de talleres educativos sobre teatro y literatura.
 
-**Distribución del presupuesto:**
-- Honorarios del elenco y equipo (45%)
-- Producción y escenografía (25%)
-- Alquiler del teatro (15%)
-- Programa educativo (10%)
-- Marketing y difusión (5%)
-
 Tu apoyo hace posible que el teatro clásico llegue a nuevas audiencias de manera innovadora y accesible.`,
     goal: 12000,
     raised: 8400,
     donors: 104,
-    daysLeft: 25,
+    daysLeft: 24,
   },
   {
-    id: "obra-teatro-peruano-contemporaneo",
-    title: "Teatro Peruano Contemporáneo",
-    subtitle: "Voces de nuestra generación",
+    id: "la-casa-bernarda-alba",
+    title: "La Casa de Bernarda Alba",
+    subtitle: "Drama español en el escenario peruano",
     category: "Teatro",
-    date: "2025-03-12",
-    time: "20:00",
-    location: "Centro Cultural PUCP, Lima",
-    image: "https://images.unsplash.com/photo-1507924538820-ede94a04019d?w=800",
+    date: "2025-01-18",
+    time: "19:00",
+    location: "Teatro Peruano Japonés, Jesús María",
+    image: "https://images.unsplash.com/photo-1516307365426-bea591f05011?w=800",
     videoUrl: "",
-    description: "Tres obras cortas escritas por dramaturgos peruanos emergentes.",
-    fullDescription: `Teatro Peruano Contemporáneo presenta tres obras originales que exploran la realidad peruana actual desde perspectivas frescas y provocadoras.
+    description: "La obra maestra de García Lorca cobra vida con un elenco nacional de primer nivel.",
+    fullDescription: `La Casa de Bernarda Alba presenta el drama intenso de Federico García Lorca con una producción de alta calidad.
 
 **Sobre el evento:**
-El teatro peruano contemporáneo está viviendo un renacimiento. Nuevos dramaturgos están contando historias que reflejan nuestra realidad con honestidad, humor y crítica social.
+Esta obra maestra del teatro español explora temas universales: la represión, la libertad, el deseo y las convenciones sociales. Su mensaje resuena con fuerza en nuestra sociedad actual.
 
-**Obras presentadas:**
-1. "La Espera" - sobre la migración venezolana
-2. "Cerro sin Retorno" - drama urbano limeño
-3. "Mamá Huaca" - fusión de mitología andina y presente
+**Elenco destacado:**
+- Actores con reconocida trayectoria nacional
+- Dirección de Mariana Torres
+- Producción profesional de alto nivel
 
-**Directores y elenco:**
-- Tres directores emergentes
-- 15 actores en total
-- Producción colaborativa
+**Propuesta escénica:**
+Respetando el texto original, esta puesta en escena utiliza elementos visuales y sonoros contemporáneos para intensificar la experiencia dramática.
 
-**Objetivo cultural:**
-Dar espacio a nuevas voces teatrales y contar historias que nos representen como sociedad actual.
-
-**Presupuesto:**
-- Honorarios de dramaturgos y directores (35%)
-- Honorarios del elenco (30%)
-- Producción y escenografía (20%)
-- Alquiler del espacio (15%)
-
-Con tu apoyo, impulsamos la nueva generación de teatro peruano.`,
-    goal: 9500,
-    raised: 5225,
-    donors: 87,
-    daysLeft: 32,
-  },
-  {
-    id: "monologos-urbanos",
-    title: "Monólogos Urbanos",
-    subtitle: "Historias de la ciudad que vivimos",
-    category: "Teatro",
-    date: "2025-03-19",
-    time: "21:00",
-    location: "Teatro La Plaza, San Miguel",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800",
-    videoUrl: "",
-    description: "Historias personales que retratan la vida cotidiana en Lima.",
-    fullDescription: `Monólogos Urbanos es una colección de historias reales interpretadas por sus propios protagonistas, capturando la esencia de vivir en Lima hoy.
-
-**Sobre el evento:**
-Cada monólogo es una ventana a la vida de personas reales: un taxista, una enfermera, un vendedor ambulante, una estudiante universitaria. Sus historias son nuestra historia colectiva.
-
-**Formato único:**
-- 8 monólogos de 10 minutos cada uno
-- Interpretados por personas reales (no actores profesionales)
-- Dirección y entrenamiento por profesionales del teatro
-
-**Impacto social:**
-Este proyecto da voz a quienes normalmente no la tienen, mostrando que cada vida merece ser contada y escuchada.
-
-**Inversión:**
-- Talleres de actuación para participantes (40%)
-- Dirección y producción (30%)
-- Alquiler del teatro (20%)
-- Documentación audiovisual (10%)
-
-Tu aporte hace posible que historias invisibilizadas sean escuchadas.`,
-    goal: 6000,
-    raised: 2880,
-    donors: 69,
-    daysLeft: 39,
-  },
-  {
-    id: "festival-teatro-callejero",
-    title: "Festival de Teatro Callejero",
-    subtitle: "Arte en las calles de Lima",
-    category: "Teatro",
-    date: "2025-04-02",
-    time: "16:00",
-    location: "Parque Kennedy, Miraflores",
-    image: "https://images.unsplash.com/photo-1518608159586-908285de2c82?w=800",
-    videoUrl: "",
-    description: "El teatro sale a las calles para llegar a todos sin barreras ni boletos.",
-    fullDescription: `El Festival de Teatro Callejero transforma el Parque Kennedy en un escenario abierto donde el arte es accesible para todos.
-
-**Sobre el evento:**
-El teatro callejero rompe la cuarta pared y elimina las barreras económicas y sociales. Durante un día completo, el parque será escenario de múltiples presentaciones simultáneas.
-
-**Compañías participantes:**
-- 10 grupos de teatro callejero de Lima
-- Invitados de provincias
-- Talleres abiertos para el público
-
-**Programación:**
-- 4:00 PM - 10:00 PM
-- Presentaciones cada 30 minutos
-- Talleres participativos
-- Zona de conversación con artistas
-
-**Presupuesto:**
-- Honorarios de compañías (40%)
-- Permisos y logística (25%)
-- Equipos técnicos portátiles (20%)
-- Difusión y coordinación (15%)
-
-Apoya el teatro accesible para todos y la democratización de la cultura.`,
-    goal: 8500,
-    raised: 6120,
+Este montaje demuestra la vigencia del teatro clásico y su capacidad de conmovernos hoy.`,
+    goal: 14000,
+    raised: 11900,
     donors: 134,
-    daysLeft: 53,
+    daysLeft: 6,
   },
   {
-    id: "obra-experimental-vanguardia",
-    title: "Teatro Experimental de Vanguardia",
-    subtitle: "Rompiendo esquemas escénicos",
+    id: "teatro-experimental-absurdo",
+    title: "Teatro Experimental: Lo Absurdo",
+    subtitle: "Vanguardia teatral peruana",
     category: "Teatro",
-    date: "2025-04-15",
-    time: "21:30",
+    date: "2025-01-26",
+    time: "20:00",
     location: "Espacio Fundación Telefónica, Lima",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800",
+    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800",
     videoUrl: "",
-    description: "Una experiencia teatral inmersiva que desafía las convenciones tradicionales.",
-    fullDescription: `Teatro Experimental de Vanguardia es una propuesta radical que fusiona teatro, danza, video arte y tecnología para crear una experiencia totalmente nueva.
+    description: "Una propuesta innovadora que desafía los límites del teatro tradicional.",
+    fullDescription: `Teatro Experimental: Lo Absurdo es una propuesta radical que fusiona teatro, performance y multimedia para crear una experiencia totalmente nueva.
 
 **Sobre el evento:**
-Esta obra no tiene argumento lineal ni personajes tradicionales. Es una experiencia sensorial que invita al público a construir su propia interpretación a partir de estímulos visuales, sonoros y corporales.
+El teatro del absurdo nació como respuesta a un mundo que había perdido el sentido. Esta producción contemporánea explora la alienación, la incomunicación y la búsqueda de significado en nuestros tiempos.
 
 **Equipo creativo:**
 - Colectivo Escénico Experimental
 - Diseñadores multimedia
-- Músicos electrónicos en vivo
-- 8 performers
+- Performers multidisciplinarios
 
 **Innovación artística:**
-Utilizaremos realidad aumentada, proyecciones 360°, y el público podrá moverse libremente por el espacio, eligiendo qué observar.
+Esta obra no tiene argumento lineal ni personajes tradicionales. Es una experiencia sensorial que invita al público a construir su propia interpretación.
 
-**Objetivo:**
-Expandir los límites del teatro y crear nuevas formas de expresión artística que reflejen la complejidad del mundo contemporáneo.
+Con tu apoyo, empujamos los límites del arte escénico peruano y exploramos nuevas formas de expresión.`,
+    goal: 9000,
+    raised: 3600,
+    donors: 52,
+    daysLeft: 14,
+  },
+  {
+    id: "obra-infantil-magica",
+    title: "El Bosque Mágico",
+    subtitle: "Teatro para niños y familias",
+    category: "Teatro",
+    date: "2025-02-03",
+    time: "16:00",
+    location: "Teatro Municipal de Lima",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+    videoUrl: "",
+    description: "Una aventura teatral llena de magia, música y personajes fantásticos para toda la familia.",
+    fullDescription: `El Bosque Mágico es una producción teatral diseñada especialmente para niños y familias, combinando teatro, música y magia.
 
-**Distribución del presupuesto:**
-- Desarrollo tecnológico (35%)
-- Honorarios del equipo creativo (30%)
-- Alquiler del espacio (20%)
-- Equipamiento técnico (15%)
+**Sobre el evento:**
+Esta obra original cuenta la historia de un grupo de niños que descubren un bosque mágico habitado por criaturas fantásticas. A través de su aventura, aprenden sobre amistad, valentía y el cuidado de la naturaleza.
 
-Con tu apoyo, empujamos los límites del arte escénico peruano.`,
-    goal: 10000,
-    raised: 3800,
-    donors: 51,
-    daysLeft: 66,
+**Características especiales:**
+- Efectos especiales y escenografía impresionante
+- Canciones originales pegajosas
+- Momentos de participación del público
+- Mensaje positivo y educativo
+
+**Equipo de producción:**
+- Dirección especializada en teatro infantil
+- Actores con experiencia en audiencias jóvenes
+- Producción de calidad profesional
+
+Este evento ofrece entretenimiento familiar de calidad y introduce a los niños al maravilloso mundo del teatro.`,
+    goal: 11000,
+    raised: 10450,
+    donors: 187,
+    daysLeft: 22,
+  },
+  {
+    id: "monologos-dramaticos",
+    title: "Voces del Alma",
+    subtitle: "Monólogos dramáticos contemporáneos",
+    category: "Teatro",
+    date: "2025-02-14",
+    time: "19:30",
+    location: "Teatro La Plaza, Larcomar",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800",
+    videoUrl: "",
+    description: "Actores reconocidos interpretan textos contemporáneos sobre la condición humana.",
+    fullDescription: `Voces del Alma presenta una selección de monólogos dramáticos interpretados por los actores más talentosos del teatro peruano.
+
+**Sobre el evento:**
+Cada monólogo es una ventana al alma humana: sus miedos, esperanzas, contradicciones y búsquedas. Textos contemporáneos que hablan de amor, pérdida, identidad y el sentido de la vida.
+
+**Actores participantes:**
+- Destacados intérpretes del teatro nacional
+- Cada actor presenta un monólogo de 20 minutos
+- Selección de textos de autores contemporáneos
+
+**Experiencia íntima:**
+El formato de monólogo crea una conexión especial entre actor y público, permitiendo momentos de profunda emoción y reflexión.
+
+Este evento celebra el poder de la palabra y la actuación en su forma más pura.`,
+    goal: 8500,
+    raised: 4675,
+    donors: 71,
+    daysLeft: 33,
   },
 
   // Arte y Exposición
   {
-    id: "exposicion-arte-urbano-contemporaneo",
-    title: "Arte Urbano Contemporáneo",
-    subtitle: "Muralismo y grafiti peruano",
+    id: "exposicion-arte-contemporaneo",
+    title: "Arte Contemporáneo Peruano",
+    subtitle: "Nuevas voces del arte nacional",
     category: "Arte y Exposición",
-    date: "2025-02-28",
+    date: "2025-01-17",
     time: "18:00",
-    location: "Galería 80m2, Barranco",
-    image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800",
+    location: "MALI - Museo de Arte de Lima",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800",
     videoUrl: "",
-    description: "Una exposición que celebra el arte urbano como expresión legítima de cultura contemporánea.",
-    fullDescription: `Arte Urbano Contemporáneo trae las calles a la galería, mostrando el trabajo de los mejores muralistas y artistas urbanos de Perú.
+    description: "Exposición colectiva de artistas emergentes que exploran la identidad peruana contemporánea.",
+    fullDescription: `Arte Contemporáneo Peruano es una vitrina para el talento emergente que está redefiniendo el arte nacional.
 
 **Sobre el evento:**
-El arte urbano ha pasado de ser considerado vandalismo a ser reconocido como una forma legítima de expresión artística. Esta exposición documenta y celebra esta evolución.
+Esta exposición reúne obras de 20 artistas peruanos que exploran qué significa ser peruano en el siglo XXI. A través de diferentes medios y estilos, estos artistas cuestionan, celebran y reimaginan nuestra identidad colectiva.
 
 **Artistas participantes:**
-- Entes y Pesimo (Lima)
-- Jade Rivera (Cusco)
-- Decertor (Arequipa)
-- Colectivos de arte callejero
-
-**Formato de la exposición:**
-- Fotografías de murales icónicos
-- Obras en lienzo
-- Video-documentales del proceso creativo
-- Mural en vivo durante la inauguración
-
-**Impacto cultural:**
-Legitimamos el arte urbano y mostramos cómo transforma espacios públicos en galerías abiertas para todos.
-
-**Presupuesto:**
-- Honorarios de artistas (35%)
-- Montaje y curaduría (25%)
-- Alquiler de galería (20%)
-- Catálogo y documentación (20%)
-
-Tu donación apoya el reconocimiento del arte urbano como patrimonio cultural.`,
-    goal: 7500,
-    raised: 6000,
-    donors: 145,
-    daysLeft: 26,
-  },
-  {
-    id: "muestra-fotografia-peruana",
-    title: "Muestra de Fotografía Peruana",
-    subtitle: "Lentes que capturan nuestra identidad",
-    category: "Arte y Exposición",
-    date: "2025-03-08",
-    time: "19:00",
-    location: "Centro Cultural de España, Lima",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800",
-    videoUrl: "",
-    description: "Exposición fotográfica que retrata la diversidad y complejidad del Perú contemporáneo.",
-    fullDescription: `La Muestra de Fotografía Peruana reúne el trabajo de 20 fotógrafos que capturan diferentes aspectos de nuestra realidad nacional.
-
-**Sobre el evento:**
-La fotografía es memoria y testimonio. Esta muestra presenta imágenes que van desde paisajes andinos hasta retratos urbanos, documentando la riqueza y diversidad de nuestro país.
-
-**Fotógrafos participantes:**
-- Fotógrafos reconocidos y emergentes
-- Diferentes estilos: documental, artístico, fotoperiodismo
-- Representación de todas las regiones del país
-
-**Temáticas:**
-- Identidad cultural
-- Transformación urbana
-- Naturaleza y medio ambiente
-- Retratos sociales
-
-**Valor educativo:**
-Cada fotografía estará acompañada de textos explicativos y habrá visitas guiadas gratuitas los fines de semana.
-
-**Distribución del presupuesto:**
-- Impresión de fotografías de calidad museográfica (40%)
-- Honorarios de fotógrafos (30%)
-- Montaje y curaduría (20%)
-- Catálogo impreso (10%)
-
-Con tu apoyo, preservamos y difundimos la memoria visual de nuestro país.`,
-    goal: 6000,
-    raised: 3900,
-    donors: 98,
-    daysLeft: 28,
-  },
-  {
-    id: "exposicion-artistas-emergentes",
-    title: "Exposición Artistas Emergentes",
-    subtitle: "Nuevas voces del arte peruano",
-    category: "Arte y Exposición",
-    date: "2025-03-15",
-    time: "18:30",
-    location: "MAC Lima, Barranco",
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800",
-    videoUrl: "",
-    description: "Plataforma para que artistas jóvenes muestren su trabajo y se conecten con el público.",
-    fullDescription: `Exposición Artistas Emergentes es una vitrina para el talento joven que está redefiniendo el arte contemporáneo peruano.
-
-**Sobre el evento:**
-Los artistas emergentes enfrentan barreras para mostrar su trabajo. Esta exposición les da la oportunidad de exhibir en un museo de prestigio y conectar con coleccionistas, galeristas y público.
-
-**Selección de artistas:**
-- 15 artistas menores de 35 años
-- Convocatoria abierta con jurado de expertos
 - Diversidad de medios: pintura, escultura, instalación, video arte
+- Representación de diferentes regiones del país
+- Convocatoria con jurado de expertos
 
 **Programa complementario:**
 - Charlas con los artistas
 - Tours guiados
-- Networking con galeristas
 - Catálogo digital
 
-**Impacto en la carrera artística:**
-Esta exposición puede ser el lanzamiento profesional que muchos artistas necesitan.
-
-**Presupuesto:**
-- Montaje y museografía (30%)
-- Honorarios simbólicos para artistas (25%)
-- Marketing y difusión (25%)
-- Catálogo y documentación (20%)
-
-Tu aporte impulsa las carreras de los artistas del futuro.`,
-    goal: 9000,
-    raised: 3780,
-    donors: 67,
-    daysLeft: 35,
+Este evento posiciona al arte peruano contemporáneo en el mapa cultural latinoamericano.`,
+    goal: 13000,
+    raised: 10140,
+    donors: 112,
+    daysLeft: 5,
   },
   {
-    id: "festival-arte-reciclado",
-    title: "Festival de Arte Reciclado",
-    subtitle: "Transformando desechos en arte",
+    id: "fotografia-peru-antiguo",
+    title: "Perú en Blanco y Negro",
+    subtitle: "Fotografía histórica del Perú",
     category: "Arte y Exposición",
-    date: "2025-03-22",
-    time: "10:00",
-    location: "Parque de las Leyendas, Lima",
-    image: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=800",
+    date: "2025-01-23",
+    time: "17:00",
+    location: "Centro Cultural PUCP",
+    image: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800",
     videoUrl: "",
-    description: "Arte con conciencia ambiental que transforma materiales reciclados en obras impactantes.",
-    fullDescription: `El Festival de Arte Reciclado combina creatividad con conciencia ambiental, mostrando cómo el arte puede contribuir a un planeta más sostenible.
+    description: "Un recorrido visual por la historia del Perú a través de fotografías históricas restauradas.",
+    fullDescription: `Perú en Blanco y Negro presenta una colección única de fotografías históricas que documentan la evolución de nuestro país.
 
 **Sobre el evento:**
-En un mundo ahogado en desechos, el arte reciclado no solo crea belleza, sino que también envía un mensaje poderoso sobre consumo, desperdicio y responsabilidad ambiental.
+La fotografía es memoria y testimonio. Esta exposición muestra imágenes desde 1850 hasta 1980, capturando momentos decisivos de nuestra historia: transformaciones urbanas, vida cotidiana, eventos históricos y rostros del Perú que fue.
 
-**Artistas y obras:**
-- Esculturas monumentales de plástico reciclado
-- Instalaciones de materiales recuperados
-- Talleres para niños y familias
-- Moda sostenible con materiales reciclados
+**Colección:**
+- 150 fotografías restauradas digitalmente
+- Imágenes de archivos públicos y privados
+- Fotografías inéditas
 
-**Componente educativo:**
-- Charlas sobre reciclaje y economía circular
-- Demostraciones de técnicas de reutilización
-- Zona de reciclaje interactiva
+**Valor histórico:**
+Cada imagen está contextualizada con información histórica detallada, ofreciendo una experiencia educativa profunda.
 
-**Objetivo ambiental:**
-Inspirar a las personas a repensar su relación con los materiales de desecho y ver el potencial creativo en lo que normalmente tiramos.
-
-**Presupuesto:**
-- Honorarios de artistas (30%)
-- Materiales y producción (25%)
-- Logística del evento (20%)
-- Programa educativo (15%)
-- Difusión (10%)
-
-Con tu donación, promovemos el arte sostenible y la conciencia ambiental.`,
-    goal: 8000,
-    raised: 4640,
-    donors: 112,
-    daysLeft: 42,
+Este evento preserva y difunde la memoria visual de nuestro país para las futuras generaciones.`,
+    goal: 16000,
+    raised: 14080,
+    donors: 145,
+    daysLeft: 11,
   },
   {
-    id: "bienal-arte-digital",
-    title: "Bienal de Arte Digital",
-    subtitle: "La intersección del arte y la tecnología",
+    id: "arte-urbano-mural",
+    title: "Festival de Arte Urbano",
+    subtitle: "Murales que transforman la ciudad",
     category: "Arte y Exposición",
-    date: "2025-04-05",
-    time: "17:00",
+    date: "2025-01-30",
+    time: "10:00",
+    location: "Distrito de Barranco",
+    image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800",
+    videoUrl: "",
+    description: "Artistas nacionales e internacionales crean murales en vivo en las calles de Barranco.",
+    fullDescription: `El Festival de Arte Urbano transforma las calles de Barranco en una galería abierta donde el arte es para todos.
+
+**Sobre el evento:**
+El arte urbano ha pasado de ser considerado vandalismo a ser reconocido como una forma legítima de expresión artística. Este festival celebra esta evolución y transforma espacios públicos en obras de arte.
+
+**Artistas participantes:**
+- Entes y Pesimo (Lima)
+- Jade Rivera (Cusco)
+- Artistas internacionales invitados
+- Colectivos de arte callejero
+
+**Formato del festival:**
+- Muralistas trabajan en vivo durante 3 días
+- El público puede observar el proceso creativo
+- Talleres de arte urbano para jóvenes
+- Conversatorios sobre arte y espacio público
+
+Este evento legitimiza el arte urbano y demuestra cómo puede transformar comunidades.`,
+    goal: 10000,
+    raised: 6200,
+    donors: 93,
+    daysLeft: 18,
+  },
+  {
+    id: "escultura-moderna",
+    title: "Esculturas en el Parque",
+    subtitle: "Arte tridimensional al aire libre",
+    category: "Arte y Exposición",
+    date: "2025-02-07",
+    time: "10:00",
+    location: "Parque El Olivar, San Isidro",
+    image: "https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=800",
+    videoUrl: "",
+    description: "Exposición al aire libre de esculturas modernas que dialogan con la naturaleza.",
+    fullDescription: `Esculturas en el Parque presenta obras tridimensionales de artistas contemporáneos en diálogo con la naturaleza del Parque El Olivar.
+
+**Sobre el evento:**
+La escultura pública democratiza el arte al sacarlo de museos y galerías. Esta exposición al aire libre permite que cualquier persona que visite el parque pueda experimentar arte de calidad.
+
+**Artistas participantes:**
+- Escultores peruanos de reconocida trayectoria
+- Diferentes materiales: metal, piedra, madera, reciclados
+- Obras de gran formato
+
+**Interacción con el espacio:**
+Cada escultura ha sido pensada para dialogar con su entorno natural, creando una experiencia única donde arte y naturaleza se complementan.
+
+Este evento hace el arte accesible para todos y embellece nuestros espacios públicos.`,
+    goal: 12000,
+    raised: 8160,
+    donors: 108,
+    daysLeft: 26,
+  },
+  {
+    id: "arte-digital-interactivo",
+    title: "Arte Digital Interactivo",
+    subtitle: "La fusión del arte y la tecnología",
+    category: "Arte y Exposición",
+    date: "2025-02-14",
+    time: "18:00",
     location: "Museo de Arte Contemporáneo, Barranco",
     image: "https://images.unsplash.com/photo-1549887534-1541e9326642?w=800",
     videoUrl: "https://www.youtube.com/embed/fEgLgvXcFk4",
-    description: "Primera bienal de arte digital en Perú, explorando las nuevas fronteras de la creación artística.",
-    fullDescription: `La Bienal de Arte Digital marca un hito en el arte peruano, siendo la primera exposición de esta escala dedicada exclusivamente al arte creado con y para medios digitales.
+    description: "Exposición inmersiva de arte digital donde el público interactúa con las obras.",
+    fullDescription: `Arte Digital Interactivo explora las nuevas fronteras de la creación artística en la era digital.
 
 **Sobre el evento:**
-El arte digital está redefiniendo qué es el arte y quién puede ser artista. Esta bienal presenta obras que solo pueden existir en formato digital: arte generativo, NFTs, realidad virtual, inteligencia artificial y más.
+El arte digital está redefiniendo qué es el arte y cómo lo experimentamos. Esta exposición presenta obras que solo pueden existir en formato digital y que responden a la presencia e interacción del público.
 
-**Artistas internacionales y locales:**
-- 30 artistas de 12 países
-- Pioneros del arte digital peruano
-- Colectivos de arte tecnológico
-
-**Experiencias inmersivas:**
+**Experiencias presentadas:**
 - Instalaciones de realidad virtual
 - Arte interactivo controlado por el público
 - Proyecciones 3D mapping
-- Experiencias de realidad aumentada
+- Arte generativo con inteligencia artificial
 
-**Reflexión crítica:**
-La bienal incluye conversatorios sobre el impacto de la tecnología en el arte, la propiedad digital, los NFTs y el futuro de la creatividad.
+**Artistas:**
+- Colectivos de arte tecnológico peruanos
+- Artistas digitales internacionales
+- Programadores creativos
 
-**Presupuesto:**
-- Equipamiento tecnológico (40%)
-- Honorarios de artistas internacionales (30%)
-- Montaje y producción (20%)
-- Programa de conferencias (10%)
+**Reflexión sobre el futuro:**
+La exposición incluye conversatorios sobre el impacto de la tecnología en el arte y el futuro de la creatividad.
 
-Tu apoyo posiciona al Perú en la vanguardia del arte digital mundial.`,
-    goal: 13000,
-    raised: 4550,
-    donors: 58,
-    daysLeft: 56,
+Tu apoyo posiciona al Perú en la vanguardia del arte digital.`,
+    goal: 15000,
+    raised: 8700,
+    donors: 97,
+    daysLeft: 33,
   },
 ];
 
@@ -801,19 +651,16 @@ export default function EventDetail() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // In real app, fetch event data from API
     const foundEvent = mockEvents.find((e) => e.id === eventId);
-    if (foundEvent) {
-      setEvent(foundEvent);
-    }
+    setEvent(foundEvent);
   }, [eventId]);
 
   if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Evento no encontrado</h2>
-          <Button onClick={() => navigate("/")}>Volver al inicio</Button>
+          <h1 className="text-2xl font-bold mb-4">Evento no encontrado</h1>
+          <Button onClick={() => navigate("/")}>Volver a inicio</Button>
         </div>
       </div>
     );
@@ -834,6 +681,7 @@ export default function EventDetail() {
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              title={`Video de ${event.title}`}
             />
           ) : (
             <>
@@ -989,7 +837,20 @@ export default function EventDetail() {
         <EventModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          event={event}
+          event={{
+            id: event.id,
+            title: event.title,
+            subtitle: event.subtitle,
+            category: event.category,
+            date: event.date,
+            time: event.time,
+            location: event.location,
+            image: event.image,
+            description: event.description,
+            progress: percentage,
+            donors: event.donors,
+            goal: event.goal,
+          }}
         />
       )}
     </div>
