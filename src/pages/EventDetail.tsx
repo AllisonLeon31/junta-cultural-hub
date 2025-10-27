@@ -827,7 +827,7 @@ export default function EventDetail() {
       
       <main className="pt-20">
         {/* Hero Image/Video Section */}
-        <section className="relative h-[60vh] overflow-hidden">
+        <section className="relative h-[60vh] overflow-hidden bg-secondary">
           {event.videoUrl ? (
             <iframe
               src={event.videoUrl}
@@ -836,11 +836,31 @@ export default function EventDetail() {
               allowFullScreen
             />
           ) : (
-            <img
-              src={event.image}
-              alt={event.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            <>
+              <img
+                src={event.image}
+                alt={`${event.title} - ${event.category}`}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector('.placeholder-hero')) {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'placeholder-hero absolute inset-0 bg-secondary flex flex-col items-center justify-center';
+                    placeholder.innerHTML = `
+                      <svg class="w-24 h-24 text-muted-foreground mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                      </svg>
+                      <p class="text-muted-foreground text-lg font-medium">${event.category}</p>
+                      <p class="text-muted-foreground text-sm mt-2">${event.title}</p>
+                    `;
+                    parent.insertBefore(placeholder, parent.firstChild);
+                  }
+                }}
+              />
+            </>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
         </section>
