@@ -354,19 +354,17 @@ const Index = () => {
       
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="https://cdn.pixabay.com/video/2022/11/27/141041-776486984_large.mp4"
-            type="video/mp4"
-          />
-        </video>
+      {/* Video Background */}
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src="/header_movie.mp4" type="video/mp4" />
+  Tu navegador no soporta la reproducción de video.
+</video>
         
         {/* Purple Gradient Overlay - from top (60% opacity) to bottom (transparent) */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-transparent"></div>
