@@ -42,7 +42,7 @@ const AboutUs = () => {
                 </div>
                 <h2 className="text-2xl font-bold mb-4">Nuestra Visión</h2>
                 <p className="text-muted-foreground">
-                  Ser la plataforma líder de crowdfunding cultural en Perú,
+                  Ser la primera plataforma de crowdfunding cultural en Perú,
                   construyendo una comunidad vibrante que transforma ideas
                   creativas en experiencias memorables.
                 </p>

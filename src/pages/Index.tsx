@@ -396,7 +396,7 @@ const Index = () => {
               className="bg-white text-primary hover:bg-white/90 shadow-lg"
             >
               <Heart className="mr-2 h-5 w-5" />
-              Dona a un evento
+              Apoya a un evento
             </Button>
           </div>
         </div>

@@ -33,54 +33,100 @@ const Policies = () => {
               <div className="space-y-6 text-muted-foreground">
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Recopilación de Información
+                    Qué datos recolectamos
                   </h3>
                   <p>
-                    En Junta.pe recopilamos únicamente la información necesaria
-                    para operar la plataforma y proporcionar nuestros servicios.
-                    Esto incluye: nombre, correo electrónico, información de
-                    pago (procesada de forma segura por terceros), y datos de
-                    uso de la plataforma.
+                Recolectamos solo lo necesario para operar la plataforma: nombre, correo electrónico, contraseña cifrada, datos de perfil y uso. Los pagos se procesan mediante terceros certificados (no almacenamos los datos de tu tarjeta).
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Uso de la Información
+                    Para qué usamos tus datos
                   </h3>
                   <p>
-                    Utilizamos tu información para: procesar donaciones,
-                    gestionar cuentas de usuario, enviar actualizaciones sobre
-                    eventos, mejorar nuestros servicios y cumplir con
-                    obligaciones legales. Nunca vendemos tu información a
-                    terceros.
+                 •	Procesar donaciones y operar tu cuenta.
+                <br /> •	Enviarte confirmaciones, actualizaciones y avisos sobre eventos.
+                <br /> •	Mejorar la plataforma y prevenir fraude.
+                <br /> •	Cumplir obligaciones legales y requerimientos de autoridades.
+
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Seguridad de Datos
+                    Con quién lo compartimos
                   </h3>
                   <p>
-                    Implementamos medidas de seguridad técnicas y
-                    organizacionales para proteger tu información personal
-                    contra acceso no autorizado, pérdida o alteración. Todos los
-                    datos sensibles son encriptados.
+                Compartimos datos solo con proveedores que nos ayudan a operar (pasarela de pagos, correo transaccional, analítica), bajo contratos que protegen tu información. No vendemos tus datos.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Tus Derechos
+                    Cookies y analítica
                   </h3>
                   <p>
-                    Tienes derecho a acceder, corregir o eliminar tu información
-                    personal en cualquier momento. Puedes ejercer estos derechos
-                    contactándonos a través de privacidad@junta.pe
+                    Usamos cookies para recordar tu sesión y medir uso de la plataforma. Puedes gestionarlas desde la configuración de tu navegador.
                   </p>
                 </div>
               </div>
+              <div className="space-y-6 text-muted-foreground">
+  <div>
+    <h3 className="text-xl font-semibold text-foreground mb-3">
+      Conservación
+    </h3>
+    <p>
+      Guardamos tus datos mientras tengas cuenta o sea necesario para prestar el
+      servicio y cumplir obligaciones legales. Luego los eliminamos o
+      anonimizamos.
+    </p>
+  </div>
+
+  <div>
+    <h3 className="text-xl font-semibold text-foreground mb-3">
+      Seguridad
+    </h3>
+    <p>
+      Aplicamos medidas técnicas y organizativas para proteger tu información
+      (cifrado en tránsito, controles de acceso). Los pagos se realizan a través
+      de pasarelas con estándares de seguridad del sector.
+    </p>
+  </div>
+
+  <div>
+    <h3 className="text-xl font-semibold text-foreground mb-3">
+      Tus derechos
+    </h3>
+    <p>
+      Puedes acceder, corregir, actualizar, portar o solicitar la eliminación de
+      tu información, así como oponerte u objetar ciertos usos. Escríbenos a{" "}
+      <strong>privacidad@junta.pe</strong>.
+    </p>
+  </div>
+
+  <div>
+    <h3 className="text-xl font-semibold text-foreground mb-3">
+      Menores de edad
+    </h3>
+    <p>
+      La plataforma está dirigida a mayores de 18 años. Si detectamos datos de
+      menores sin autorización, los eliminaremos.
+    </p>
+  </div>
+
+  <div>
+    <h3 className="text-xl font-semibold text-foreground mb-3">
+      Cambios a esta política
+    </h3>
+    <p>
+      Podemos actualizar esta política. Publicaremos la fecha de última
+      actualización y, si el cambio es relevante, te lo notificaremos.
+    </p>
+  </div>
+</div>
             </div>
+
 
             {/* Terms of Use */}
             <div className="mb-16">
@@ -166,9 +212,7 @@ const Policies = () => {
                     Distribución de Fondos
                   </h3>
                   <p>
-                    De cada donación, el 95% va directamente al promotor del
-                    evento y el 5% se destina a mantener la plataforma operativa
-                    y mejorar nuestros servicios.
+                    De cada donación: 90% va al organizador, 8% es comisión de la plataforma (incluye procesamiento y soporte) y 2% se destina a Donación Social. Estos importes se descuentan al transferir.
                   </p>
                 </div>
 

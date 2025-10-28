@@ -101,9 +101,7 @@ const FAQ = () => {
                   ¿Cuánto cobra Junta.pe por usar la plataforma?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Junta.pe cobra una comisión del 5% sobre los fondos
-                  recaudados para mantener la plataforma operativa. Este
-                  porcentaje incluye costos de procesamiento de pagos y soporte.
+                  Junta.pe cobra una comisión del 8% sobre lo recaudado (incluye procesamiento de pagos y soporte). Además, se destina un 2% a Donación Social. Estos importes se descuentan al transferir los fondos al organizador.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="p3">
