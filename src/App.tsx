@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import UserSelect from "./pages/UserSelect";
 import DonorLogin from "./pages/DonorLogin";
@@ -25,6 +26,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/eventos" element={<Events />} />
           <Route path="/evento/:eventId" element={<EventDetail />} />
           <Route path="/user-select" element={<UserSelect />} />
           <Route path="/donor-login" element={<DonorLogin />} />

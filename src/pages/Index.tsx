@@ -392,6 +392,7 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 shadow-lg"
+              onClick={() => navigate("/eventos")}
             >
               <Heart className="mr-2 h-5 w-5" />
               Apoya a un evento
@@ -445,11 +446,21 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-            {filteredEvents.map((event) => (
+            {filteredEvents.slice(0, 3).map((event) => (
               <div key={event.id} className="animate-fade-in">
                 <EventCard {...event} onViewDetails={handleViewDetails} />
               </div>
             ))}
+          </div>
+          
+          <div className="flex justify-center mt-10">
+            <Button
+              size="lg"
+              onClick={() => navigate("/eventos")}
+              className="hover-scale"
+            >
+              Ver más eventos
+            </Button>
           </div>
         </div>
       </section>
