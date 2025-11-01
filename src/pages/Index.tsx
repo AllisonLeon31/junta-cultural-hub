@@ -341,11 +341,7 @@ const Index = () => {
   });
 
   const handleViewDetails = (id: string) => {
-    const event = mockEvents.find((e) => e.id === id);
-    if (event) {
-      setSelectedEvent(event);
-      setIsModalOpen(true);
-    }
+    navigate(`/evento/${id}`);
   };
 
   return (

@@ -50,6 +50,12 @@ export const Header = () => {
               Inicio
             </Link>
             <Link
+              to="/eventos"
+              className="text-foreground transition-colors hover:text-primary"
+            >
+              Eventos
+            </Link>
+            <Link
               to="/sobre-nosotros"
               className="text-foreground transition-colors hover:text-primary"
             >
@@ -119,6 +125,13 @@ export const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Inicio
+            </Link>
+            <Link
+              to="/eventos"
+              className="block px-4 py-2 text-foreground hover:bg-secondary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Eventos
             </Link>
             <Link
               to="/sobre-nosotros"

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EventCard } from "@/components/EventCard";
-import { EventModal } from "@/components/EventModal";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "Todos los Eventos",
@@ -326,9 +326,9 @@ const mockEvents = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todos los Eventos");
-  const [selectedEvent, setSelectedEvent] = useState<typeof mockEvents[0] | null>(null);
 
   const filteredEvents = mockEvents.filter((event) => {
     const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -339,10 +339,7 @@ const Index = () => {
   });
 
   const handleViewDetails = (eventId: string) => {
-    const event = mockEvents.find(e => e.id === eventId);
-    if (event) {
-      setSelectedEvent(event);
-    }
+    navigate(`/evento/${eventId}`);
   };
 
   return (
@@ -420,14 +417,6 @@ const Index = () => {
       </section>
 
       <Footer />
-      
-      {selectedEvent && (
-        <EventModal
-          isOpen={!!selectedEvent}
-          event={selectedEvent}
-          onClose={() => setSelectedEvent(null)}
-        />
-      )}
     </div>
   );
 };

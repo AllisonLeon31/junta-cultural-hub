@@ -319,6 +319,141 @@ Este evento celebra nuestra identidad limeña con todo su humor y complejidad.`,
     donors: 84,
     daysLeft: 35,
   },
+  {
+    id: "festival-humor-improv",
+    title: "Festival de Humor e Improvisación",
+    subtitle: "Comedia improvisada en vivo",
+    category: "Comedia",
+    date: "2025-01-25",
+    time: "20:30",
+    location: "Centro Cultural PUCP, San Miguel",
+    image: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=800",
+    videoUrl: "",
+    description: "Una experiencia única donde el público participa en sketches improvisados.",
+    fullDescription: `Festival de Humor e Improvisación presenta el arte de crear comedia en el momento, sin guión ni preparación previa.
+
+**Sobre el evento:**
+La improvisación teatral es pura espontaneidad y creatividad. En este festival, los mejores grupos de improvisación del Perú se reúnen para crear escenas hilarantes basadas en sugerencias del público.
+
+**Grupos participantes:**
+- Impro Perú
+- Lima Comedy Lab
+- Colectivo Escena Libre
+- Invitados internacionales
+
+**Experiencia interactiva:**
+El público no es solo espectador, sino co-creador de las historias. Cada función es única e irrepetible.
+
+**Talleres incluidos:**
+Ofreceremos talleres gratuitos de improvisación para que el público descubra las técnicas detrás de este arte.
+
+Este evento desarrolla el arte de la improvisación en Perú y ofrece entretenimiento único cada noche.`,
+    goal: 8000,
+    raised: 4800,
+    donors: 89,
+    daysLeft: 13,
+  },
+  {
+    id: "comedia-familiar",
+    title: "Comedia para Toda la Familia",
+    subtitle: "Humor apto para todas las edades",
+    category: "Comedia",
+    date: "2025-02-05",
+    time: "18:00",
+    location: "Auditorio Nacional, San Borja",
+    image: "https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?w=800",
+    videoUrl: "",
+    description: "Un show de comedia que toda la familia puede disfrutar junta.",
+    fullDescription: `Comedia para Toda la Familia es un espectáculo de humor diseñado para ser disfrutado por todas las generaciones.
+
+**Sobre el evento:**
+El humor familiar es un arte especial que conecta a padres, hijos y abuelos a través de la risa. Este show presenta comedia inteligente, divertida y apropiada para todas las edades.
+
+**Comediantes:**
+- Especialistas en humor familiar
+- Magos cómicos
+- Sketch comedy en vivo
+- Interacción con el público
+
+**Valores del show:**
+Además de entretener, promovemos valores positivos como el respeto, la unión familiar y la importancia de reír juntos.
+
+**Experiencia completa:**
+Incluye zona de juegos pre-show para niños y espacio para fotos familiares con los comediantes.
+
+Este evento crea momentos memorables para las familias peruanas y demuestra que la comedia puede unir generaciones.`,
+    goal: 10000,
+    raised: 8500,
+    donors: 198,
+    daysLeft: 24,
+  },
+  {
+    id: "roast-battle",
+    title: "Roast Battle Lima",
+    subtitle: "Competencia de comediantes",
+    category: "Comedia",
+    date: "2025-02-15",
+    time: "22:00",
+    location: "La Noche de Barranco, Barranco",
+    image: "https://images.unsplash.com/photo-1541188495357-ad2dc89487f4?w=800",
+    videoUrl: "",
+    description: "Los mejores comediantes compiten en un duelo de insultos creativos.",
+    fullDescription: `Roast Battle Lima trae el formato de competencia de comedia más irreverente y atrevido a nuestro país.
+
+**Sobre el evento:**
+En un Roast Battle, dos comediantes se enfrentan en un duelo verbal de insultos creativos. Es un deporte de contacto verbal donde el ingenio y la creatividad son las armas.
+
+**Formato de competencia:**
+- 8 comediantes en batalla
+- Sistema de eliminación directa
+- Jurado de expertos
+- El público vota al ganador final
+
+**Reglas del juego:**
+Solo hay una regla: todo es válido mientras sea gracioso. Los comediantes se insultan mutuamente en rondas cronometradas, creando momentos de humor audaz.
+
+**Ambiente único:**
+Este formato crea una energía eléctrica en el teatro, donde la audiencia se convierte en parte del espectáculo.
+
+Tu apoyo trae formatos innovadores de comedia internacional a Lima y empuja los límites del humor peruano.`,
+    goal: 6000,
+    raised: 3000,
+    donors: 67,
+    daysLeft: 34,
+  },
+  {
+    id: "monologos-comicos",
+    title: "Noche de Monólogos Cómicos",
+    subtitle: "Historias reales, risas auténticas",
+    category: "Comedia",
+    date: "2025-02-20",
+    time: "20:00",
+    location: "Teatro Marsano, Miraflores",
+    image: "https://images.unsplash.com/photo-1611032843205-474e9c8e2ad1?w=800",
+    videoUrl: "",
+    description: "Comediantes compartiendo sus historias más divertidas de la vida real.",
+    fullDescription: `Noche de Monólogos Cómicos presenta historias personales transformadas en comedia memorable.
+
+**Sobre el evento:**
+Los mejores monólogos nacen de experiencias reales. En esta noche especial, comediantes comparten sus historias más absurdas, embarazosas y divertidas de la vida cotidiana.
+
+**Line-up:**
+- 5 comediantes con estilos únicos
+- Cada uno presenta un monólogo de 20 minutos
+- Historias sobre familia, relaciones, trabajo y vida en Lima
+
+**Autenticidad garantizada:**
+Estas no son historias inventadas: son vivencias reales que todos podemos identificar y que se vuelven hilarantes en manos de comediantes talentosos.
+
+**Conexión emocional:**
+El mejor humor viene de la verdad. Estos monólogos crean momentos de conexión genuina entre comediantes y público.
+
+Este evento celebra el poder del storytelling cómico y las experiencias compartidas que nos unen.`,
+    goal: 7000,
+    raised: 2800,
+    donors: 52,
+    daysLeft: 39,
+  },
 
   // Teatro
   {
@@ -477,6 +612,187 @@ Este evento celebra el poder de la palabra y la actuación en su forma más pura
     raised: 4675,
     donors: 71,
     daysLeft: 33,
+  },
+  {
+    id: "obra-clasica-shakespeare",
+    title: "Romeo y Julieta",
+    subtitle: "Clásico de Shakespeare en versión moderna",
+    category: "Teatro",
+    date: "2025-01-20",
+    time: "20:00",
+    location: "Teatro Segura, Lima",
+    image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800",
+    videoUrl: "",
+    description: "Una reinterpretación contemporánea del clásico de Shakespeare.",
+    fullDescription: `Romeo y Julieta presenta el clásico inmortal de Shakespeare con una visión contemporánea que resuena con las audiencias actuales.
+
+**Sobre el evento:**
+Shakespeare escribió sobre el amor imposible y los conflictos que dividen a las personas. Esta producción mantiene la poesía del texto original mientras lo contextualiza en temas relevantes hoy.
+
+**Propuesta escénica:**
+- Dirección innovadora respetando el texto clásico
+- Vestuario que fusiona época y modernidad
+- Música incidental original
+- Efectos visuales contemporáneos
+
+**Elenco:**
+Actores profesionales con formación clásica que dan nueva vida a estos personajes eternos.
+
+**Accesibilidad:**
+Funciones con subtítulos y audio-descripción para hacer el teatro clásico accesible a todos.
+
+Este evento demuestra que los clásicos siguen hablándonos con fuerza en el siglo XXI.`,
+    goal: 18000,
+    raised: 14040,
+    donors: 167,
+    daysLeft: 8,
+  },
+  {
+    id: "teatro-experimental",
+    title: "Voces del Silencio",
+    subtitle: "Teatro experimental contemporáneo",
+    category: "Teatro",
+    date: "2025-01-27",
+    time: "19:30",
+    location: "Centro Cultural Inca Garcilaso, Lima",
+    image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800",
+    videoUrl: "",
+    description: "Una propuesta innovadora que explora la comunicación no verbal.",
+    fullDescription: `Voces del Silencio es una obra experimental que desafía las convenciones del teatro tradicional al explorar la comunicación más allá de las palabras.
+
+**Concepto artístico:**
+En un mundo saturado de palabras, esta obra explora cómo nos comunicamos a través del silencio, el movimiento, los gestos y la presencia.
+
+**Elementos de la puesta:**
+- Teatro físico y movimiento expresivo
+- Diseño sonoro envolvente
+- Iluminación dramática como lenguaje
+- Interacción espacial con el público
+
+**Equipo creativo:**
+Colectivo de artistas multidisciplinarios que fusionan teatro, danza y performance.
+
+**Reflexión contemporánea:**
+La obra invita a reflexionar sobre la incomunicación en la era digital y el valor de la presencia auténtica.
+
+Este evento empuja los límites del arte escénico peruano hacia nuevas fronteras expresivas.`,
+    goal: 14000,
+    raised: 9100,
+    donors: 112,
+    daysLeft: 15,
+  },
+  {
+    id: "musical-peruano",
+    title: "Canto a Mi Tierra",
+    subtitle: "Musical folclórico peruano",
+    category: "Teatro",
+    date: "2025-02-03",
+    time: "19:00",
+    location: "Teatro Municipal, Lima",
+    image: "https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?w=800",
+    videoUrl: "",
+    description: "Un homenaje musical a la diversidad cultural del Perú.",
+    fullDescription: `Canto a Mi Tierra es un musical original que celebra la riqueza cultural del Perú a través de música, danza y teatro.
+
+**Sobre el evento:**
+Este musical recorre las tres regiones del Perú (costa, sierra y selva), presentando sus tradiciones, música y danzas en una narrativa teatral emotiva.
+
+**Producción:**
+- 30 artistas en escena (actores, cantantes, bailarines)
+- Orquesta en vivo con instrumentos tradicionales
+- Coreografías de danzas folclóricas
+- Vestuario auténtico de cada región
+
+**Repertorio musical:**
+Desde marinera hasta huayno, pasando por festejo y música amazónica, todo interpretado en vivo.
+
+**Valor educativo:**
+El musical no solo entretiene, sino que educa sobre nuestra diversidad cultural y promueve el orgullo por nuestras raíces.
+
+**Impacto social:**
+Parte de la recaudación se destina a talleres de arte para jóvenes en comunidades rurales.
+
+Este evento es una celebración total de la identidad peruana en su máxima expresión artística.`,
+    goal: 20000,
+    raised: 18400,
+    donors: 234,
+    daysLeft: 22,
+  },
+  {
+    id: "teatro-infantil",
+    title: "El Principito",
+    subtitle: "Teatro para niños y familias",
+    category: "Teatro",
+    date: "2025-02-10",
+    time: "16:00",
+    location: "Teatro La Plaza, San Miguel",
+    image: "https://images.unsplash.com/photo-1478479506715-e1f8f08c2ea1?w=800",
+    videoUrl: "",
+    description: "Una adaptación mágica del clásico de Saint-Exupéry.",
+    fullDescription: `El Principito trae a los escenarios peruanos el clásico universal de Antoine de Saint-Exupéry con una producción mágica para niños y familias.
+
+**Sobre el evento:**
+Esta historia atemporal sobre amistad, amor y lo esencial de la vida cobra vida en una adaptación teatral que preserva la magia y profundidad del texto original.
+
+**Puesta en escena:**
+- Escenografía fantástica con el planeta del principito
+- Títeres y máscaras artesanales
+- Efectos especiales teatrales
+- Música original inspirada en la obra
+
+**Elenco especializado:**
+Actores con experiencia en teatro infantil que conectan genuinamente con las audiencias jóvenes.
+
+**Valores transmitidos:**
+Amistad, responsabilidad, importancia de ver con el corazón y cuidado por lo que amamos.
+
+**Experiencia familiar:**
+Actividades pre-función y espacio de foto con los personajes incluidos en la entrada.
+
+Este evento introduce a los niños al teatro de calidad y transmite valores universales a través del arte.`,
+    goal: 12000,
+    raised: 10560,
+    donors: 201,
+    daysLeft: 29,
+  },
+  {
+    id: "drama-contemporaneo",
+    title: "Fragmentos de Memoria",
+    subtitle: "Drama contemporáneo sobre identidad",
+    category: "Teatro",
+    date: "2025-02-17",
+    time: "20:30",
+    location: "Teatro Británico, Miraflores",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800",
+    videoUrl: "",
+    description: "Una profunda reflexión sobre la memoria y la identidad peruana.",
+    fullDescription: `Fragmentos de Memoria es un drama original que explora temas de identidad, memoria colectiva y el significado de ser peruano en el siglo XXI.
+
+**Sinopsis:**
+La obra sigue a cuatro personajes de diferentes generaciones cuyas historias se entrelazan, revelando cómo el pasado y la memoria definen quiénes somos.
+
+**Temas abordados:**
+- Migración interna y externa
+- Conflicto armado interno y reconciliación
+- Diversidad cultural y mestizaje
+- Búsqueda de identidad en tiempos de cambio
+
+**Propuesta dramatúrgica:**
+Texto contemporáneo que fusiona realismo con elementos poéticos y multimedia para crear una narrativa rica y emotiva.
+
+**Equipo:**
+- Dramaturgia de autor peruano emergente
+- Dirección de teatro contemporáneo
+- Elenco multicultural
+
+**Relevancia social:**
+Esta obra inicia conversaciones necesarias sobre quiénes somos como nación y hacia dónde vamos.
+
+Apoyar este evento es apostar por el teatro peruano que reflexiona sobre nuestra realidad.`,
+    goal: 15000,
+    raised: 8250,
+    donors: 87,
+    daysLeft: 36,
   },
 
   // Arte y Exposición
@@ -642,6 +958,166 @@ Tu apoyo posiciona al Perú en la vanguardia del arte digital.`,
     donors: 97,
     daysLeft: 33,
   },
+  {
+    id: "fotografia-urbana",
+    title: "Lima en Blanco y Negro",
+    subtitle: "Fotografía urbana de Lima",
+    category: "Arte y Exposición",
+    date: "2025-01-30",
+    time: "17:00",
+    location: "Centro Cultural de España, Lima",
+    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800",
+    videoUrl: "",
+    description: "Una colección fotográfica que captura la esencia de Lima contemporánea.",
+    fullDescription: `Lima en Blanco y Negro presenta una mirada íntima y poética de nuestra capital a través de la fotografía urbana contemporánea.
+
+**Sobre el evento:**
+Esta exposición captura la esencia de Lima más allá de las postales turísticas: sus calles, su gente, sus contrastes y su belleza cotidiana en blanco y negro.
+
+**Fotógrafos participantes:**
+- 15 fotógrafos peruanos reconocidos
+- Diferentes estilos y enfoques
+- Más de 80 fotografías seleccionadas
+
+**Temáticas:**
+- Arquitectura histórica y moderna
+- Vida cotidiana en los distritos
+- Retratos de limeños
+- Paisajes urbanos únicos
+
+**Valor documental:**
+Estas imágenes se convierten en testimonio visual de Lima en esta época, preservando momentos que definirán cómo recordamos nuestra ciudad.
+
+**Programa educativo:**
+Talleres de fotografía urbana para jóvenes incluidos en el proyecto.
+
+Este evento celebra Lima y el arte fotográfico peruano contemporáneo.`,
+    goal: 9000,
+    raised: 7380,
+    donors: 178,
+    daysLeft: 18,
+  },
+  {
+    id: "exposicion-arte-peruano",
+    title: "Colores de los Andes",
+    subtitle: "Arte tradicional andino",
+    category: "Arte y Exposición",
+    date: "2025-02-06",
+    time: "16:00",
+    location: "Museo de Arte de Lima (MALI), Lima",
+    image: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=800",
+    videoUrl: "",
+    description: "Una celebración del arte textil y pictórico de las comunidades andinas.",
+    fullDescription: `Colores de los Andes es una exposición que rinde homenaje al arte tradicional de las comunidades andinas del Perú.
+
+**Sobre el evento:**
+El arte andino es una de las expresiones culturales más antiguas y vibrantes del Perú. Esta exposición presenta textiles, cerámicas y pinturas que mantienen vivas técnicas ancestrales.
+
+**Colección presentada:**
+- Textiles con técnicas pre-incaicas e incaicas
+- Cerámicas tradicionales de diferentes regiones
+- Pinturas contemporáneas con iconografía andina
+- Instrumentos musicales tradicionales
+
+**Artistas y artesanos:**
+- Maestros textileros de Cusco, Ayacucho y Puno
+- Ceramistas de Chulucanas y Quinua
+- Pintores de la escuela cusqueña contemporánea
+
+**Valor cultural:**
+Cada pieza cuenta historias de cosmovisión, tradición y resistencia cultural. Son obras de arte funcional con siglos de historia.
+
+**Comercio justo:**
+Parte de la recaudación va directamente a las comunidades artesanas.
+
+Este evento preserva y valora el patrimonio cultural vivo de nuestros pueblos andinos.`,
+    goal: 22000,
+    raised: 20900,
+    donors: 267,
+    daysLeft: 25,
+  },
+  {
+    id: "escultura-contemporanea",
+    title: "Formas del Futuro",
+    subtitle: "Esculturas contemporáneas",
+    category: "Arte y Exposición",
+    date: "2025-02-13",
+    time: "18:30",
+    location: "Galería Lucía de la Puente, San Isidro",
+    image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800",
+    videoUrl: "",
+    description: "Esculturas que desafían la percepción del espacio y la materia.",
+    fullDescription: `Formas del Futuro presenta esculturas contemporáneas que reimaginan las posibilidades de la forma, el espacio y los materiales.
+
+**Sobre el evento:**
+La escultura contemporánea desafía las nociones tradicionales de lo que puede ser una escultura. Esta exposición presenta obras que dialogan con el espacio de maneras innovadoras.
+
+**Artistas participantes:**
+- 8 escultores peruanos de renombre
+- Diferentes generaciones y enfoques
+- Obras creadas específicamente para esta muestra
+
+**Materiales y técnicas:**
+- Desde mármol y bronce tradicionales
+- Hasta materiales reciclados y tecnología
+- Instalaciones escultóricas de gran formato
+- Esculturas cinéticas interactivas
+
+**Concepto curatorial:**
+Las obras exploran temas como transformación, equilibrio, fragilidad y permanencia en nuestro tiempo.
+
+**Experiencia del visitante:**
+El público puede circular entre las esculturas, experimentándolas desde múltiples ángulos y perspectivas.
+
+Este evento posiciona la escultura peruana contemporánea en el diálogo artístico internacional.`,
+    goal: 13000,
+    raised: 7800,
+    donors: 94,
+    daysLeft: 32,
+  },
+  {
+    id: "muralismo-urbano",
+    title: "Muralismo Urbano Limeño",
+    subtitle: "Arte callejero y cultura popular",
+    category: "Arte y Exposición",
+    date: "2025-02-22",
+    time: "15:00",
+    location: "Barranco Art District, Barranco",
+    image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800",
+    videoUrl: "",
+    description: "Un recorrido por los murales más emblemáticos de Lima.",
+    fullDescription: `Muralismo Urbano Limeño es un evento que celebra el arte callejero como expresión cultural legítima y transformadora del espacio público.
+
+**Sobre el evento:**
+El muralismo limeño ha transformado barrios enteros en galerías abiertas. Este evento organiza un recorrido guiado por los murales más importantes y talleres de arte urbano.
+
+**Recorrido incluye:**
+- 15 murales emblemáticos de Barranco
+- Historia y contexto de cada obra
+- Encuentro con algunos de los artistas
+- Documentación fotográfica profesional
+
+**Artistas destacados:**
+- Entes y Pesimo
+- Jade Rivera
+- Colectivos de arte callejero
+- Artistas internacionales invitados
+
+**Talleres:**
+- Técnicas de muralismo para jóvenes
+- Stencil art y plantillas
+- Fotografía de arte urbano
+- Todas las edades bienvenidas
+
+**Impacto comunitario:**
+El evento incluye la creación de nuevos murales en espacios públicos, embelleciendo el distrito.
+
+Este evento legitima el arte urbano como patrimonio cultural de Lima y herramienta de transformación social.`,
+    goal: 11000,
+    raised: 8250,
+    donors: 189,
+    daysLeft: 41,
+  },
 ];
 
 export default function EventDetail() {
@@ -656,12 +1132,22 @@ export default function EventDetail() {
   }, [eventId]);
 
   if (!event) {
+    // Generate event data if not found in mockEvents
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Evento no encontrado</h1>
-          <Button onClick={() => navigate("/")}>Volver a inicio</Button>
-        </div>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="pt-20">
+          <div className="container mx-auto px-4 py-12">
+            <div className="text-center max-w-2xl mx-auto">
+              <h1 className="text-3xl font-bold mb-4">Cargando evento...</h1>
+              <p className="text-muted-foreground mb-6">
+                Si el evento no se carga, por favor regresa a la página de eventos.
+              </p>
+              <Button onClick={() => navigate("/eventos")}>Ver todos los eventos</Button>
+            </div>
+          </div>
+        </main>
+        <Footer />
       </div>
     );
   }

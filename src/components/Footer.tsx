@@ -72,7 +72,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="/eventos"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Ver Eventos
