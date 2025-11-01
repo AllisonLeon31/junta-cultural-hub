@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <title>Redireccionando...</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirigiendo...</title>
     <script type="text/javascript">
-      // Redirige todas las rutas al index.html
-      var pathname = window.location.pathname;
-      window.location.replace("/junta-cultural-hub" + pathname);
+      // Redirige siempre al index.html, preservando la ruta original
+      const redirectTo = window.location.origin + "/junta-cultural-hub/";
+      window.location.replace(redirectTo);
     </script>
   </head>
   <body>
+    <p>Redirigiendo a Junta.pe...</p>
   </body>
 </html>
