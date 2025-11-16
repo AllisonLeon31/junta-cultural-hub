@@ -333,11 +333,19 @@ const mockEvents = [
 const migrateMockEventsToSupabase = async () => {
   try {
     for (const event of mockEvents) {
-      const { id, progress, ...rest } = event;
+      const { id, progress, goal, raised, donors, ...rest } = event;
 
       const { error } = await supabase
         .from("events")
-        .insert(rest);
+        .insert([{
+          slug: id,
+          goal: goal || 0,
+          raised: raised || 0,
+          donors: donors || 0,
+          status: 'published',
+          is_featured: false,
+          ...rest
+        }]);
 
       if (error) {
         console.error("Error insertando evento", id, error);

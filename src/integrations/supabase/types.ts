@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      events: {
+        Row: {
+          category: string
+          created_at: string | null
+          created_by: string | null
+          date: string
+          days_left: number | null
+          description: string | null
+          donors: number | null
+          full_description: string | null
+          goal: number | null
+          id: string
+          image: string | null
+          is_featured: boolean | null
+          location: string
+          raised: number | null
+          slug: string
+          status: string | null
+          subtitle: string | null
+          time: string | null
+          title: string
+          updated_at: string | null
+          video_url: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          created_by?: string | null
+          date: string
+          days_left?: number | null
+          description?: string | null
+          donors?: number | null
+          full_description?: string | null
+          goal?: number | null
+          id?: string
+          image?: string | null
+          is_featured?: boolean | null
+          location: string
+          raised?: number | null
+          slug: string
+          status?: string | null
+          subtitle?: string | null
+          time?: string | null
+          title: string
+          updated_at?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          created_by?: string | null
+          date?: string
+          days_left?: number | null
+          description?: string | null
+          donors?: number | null
+          full_description?: string | null
+          goal?: number | null
+          id?: string
+          image?: string | null
+          is_featured?: boolean | null
+          location?: string
+          raised?: number | null
+          slug?: string
+          status?: string | null
+          subtitle?: string | null
+          time?: string | null
+          title?: string
+          updated_at?: string | null
+          video_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

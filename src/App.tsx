@@ -15,6 +15,11 @@ import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/FAQ";
 import Policies from "./pages/Policies";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/creator/Dashboard";
+import EventsList from "./pages/creator/EventsList";
+import CreateEvent from "./pages/creator/CreateEvent";
+import EditEvent from "./pages/creator/EditEvent";
+import EventAnalytics from "./pages/creator/EventAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +41,11 @@ const App = () => (
           <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/preguntas" element={<FAQ />} />
           <Route path="/politicas" element={<Policies />} />
+          <Route path="/creator" element={<Dashboard />} />
+          <Route path="/creator/events" element={<EventsList />} />
+          <Route path="/creator/events/new" element={<CreateEvent />} />
+          <Route path="/creator/events/:slug/edit" element={<EditEvent />} />
+          <Route path="/creator/events/:slug/analytics" element={<EventAnalytics />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
