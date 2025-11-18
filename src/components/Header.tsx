@@ -1,31 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  // Safely get user data
-  const userType = typeof window !== 'undefined' ? localStorage.getItem("userType") : null;
-  const userEmail = typeof window !== 'undefined' ? localStorage.getItem("userEmail") : null;
+  const [user, setUser] = useState<any>(null);
 
-  const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem("userType");
-      localStorage.removeItem("userEmail");
-    }
+  useEffect(() => {
+    // Check current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     navigate("/");
-  };
-
-  const handleDashboard = () => {
-    if (userType === "donor") {
-      navigate("/donor-dashboard");
-    } else if (userType === "promoter") {
-      navigate("/promoter-dashboard");
-    }
   };
 
   return (
@@ -77,26 +84,26 @@ export const Header = () => {
 
           {/* Auth Button */}
           <div className="hidden md:block">
-            {userEmail ? (
-              <div className="flex items-center gap-3">
-                <Button
-                  variant="default"
-                  onClick={handleDashboard}
-                >
-                  {userType === "donor" ? "Mi Impacto" : "Mis Eventos"}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleLogout}
-                >
-                  Salir
-                </Button>
-              </div>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => navigate("/studio")}>
+                    Creator Studio
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout}>
+                    Cerrar Sesión
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Button
                 variant="default"
-                onClick={() => navigate("/user-select")}
+                onClick={() => navigate("/promoter-login")}
               >
                 Iniciar Sesión
               </Button>
@@ -155,16 +162,16 @@ export const Header = () => {
               Políticas
             </Link>
             <div className="px-4">
-              {userEmail ? (
+              {user ? (
                 <div className="space-y-2">
                   <Button
                     className="w-full"
                     onClick={() => {
-                      handleDashboard();
+                      navigate("/studio");
                       setIsMobileMenuOpen(false);
                     }}
                   >
-                    {userType === "donor" ? "Mi Impacto" : "Mis Eventos"}
+                    Creator Studio
                   </Button>
                   <Button
                     variant="outline"
@@ -181,7 +188,7 @@ export const Header = () => {
                 <Button
                   className="w-full"
                   onClick={() => {
-                    navigate("/user-select");
+                    navigate("/promoter-login");
                     setIsMobileMenuOpen(false);
                   }}
                 >

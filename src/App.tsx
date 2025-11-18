@@ -15,13 +15,11 @@ import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/FAQ";
 import Policies from "./pages/Policies";
 import NotFound from "./pages/NotFound";
-import Dashboard from "./pages/creator/Dashboard";
-import EventsList from "./pages/creator/EventsList";
-import CreateEvent from "./pages/creator/CreateEvent";
-import EditEvent from "./pages/creator/EditEvent";
-import EventAnalytics from "./pages/creator/EventAnalytics";
 import PromoterRegister from "./pages/PromoterRegister";
 import { RequireAuth } from "./components/auth/RequireAuth";
+import StudioDashboard from "./pages/studio/index";
+import CreateStudioEvent from "./pages/studio/new";
+import EditStudioEvent from "./pages/studio/edit/[id]";
 
 const queryClient = new QueryClient();
 
@@ -45,42 +43,26 @@ const App = () => (
           <Route path="/preguntas" element={<FAQ />} />
           <Route path="/politicas" element={<Policies />} />
           <Route
-            path="/creator"
+            path="/studio"
             element={
               <RequireAuth>
-                <Dashboard />
+                <StudioDashboard />
               </RequireAuth>
             }
           />
           <Route
-            path="/creator/events"
+            path="/studio/new"
             element={
               <RequireAuth>
-                <EventsList />
+                <CreateStudioEvent />
               </RequireAuth>
             }
           />
           <Route
-            path="/creator/events/new"
+            path="/studio/edit/:id"
             element={
               <RequireAuth>
-                <CreateEvent />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/creator/events/:slug/edit"
-            element={
-              <RequireAuth>
-                <EditEvent />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/creator/events/:slug/analytics"
-            element={
-              <RequireAuth>
-                <EventAnalytics />
+                <EditStudioEvent />
               </RequireAuth>
             }
           />

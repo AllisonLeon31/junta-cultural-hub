@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EventCard } from "@/components/EventCard";
@@ -7,6 +7,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Search, Plus, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const categories = [
   "Todos los Eventos",
@@ -15,6 +17,67 @@ const categories = [
   "Teatro",
   "Arte y Exposición",
 ];
+
+type Event = {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string | null;
+  category: string;
+  date: string;
+  location: string;
+  image: string | null;
+  goal: number;
+  raised: number;
+  donors: number;
+};
+
+const Index = () => {
+  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("Todos los Eventos");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [modalEvent, setModalEvent] = useState<any>(null);
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
+  const loadEvents = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .eq("status", "published")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setEvents(data || []);
+    } catch (error: any) {
+      toast.error("Error al cargar eventos");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filteredEvents = events.filter((event) => {
+    const matchesCategory = selectedCategory === "Todos los Eventos" || event.category === selectedCategory;
+    const matchesSearch = searchQuery === "" || 
+      event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      event.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const calculateProgress = (raised: number, goal: number) => Math.round((raised / goal) * 100);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
 const mockEvents = [
   // Música
