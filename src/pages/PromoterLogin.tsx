@@ -1,31 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { ArrowLeft } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
 
 const PromoterLogin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignup, setIsSignup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    // Check if user is already logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        navigate("/creator");
+      }
+    });
+  }, [navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!email || !password) {
-      toast.error("Por favor completa todos los campos");
-      return;
-    }
+    setLoading(true);
 
-    // Simulación de login/registro
-    localStorage.setItem("userType", "promoter");
-    localStorage.setItem("userEmail", email);
-    
-    toast.success(isSignup ? "¡Cuenta creada exitosamente!" : "¡Bienvenido de nuevo!");
-    navigate("/promoter-dashboard");
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      toast.success("Inicio de sesión exitoso");
+      navigate("/creator");
+    } catch (error: any) {
+      toast.error(error.message || "Error al iniciar sesión");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,63 +56,59 @@ const PromoterLogin = () => {
           Volver al inicio
         </Button>
 
-        <Card className="p-8 shadow-card-hover">
-          <div className="text-center mb-6">
-            <h1 className="text-3xl font-bold gradient-hero bg-clip-text text-transparent mb-2">
-              Junta.pe
-            </h1>
-            <h2 className="text-2xl font-semibold mb-2">
-              {isSignup ? "Crear cuenta de Promotor" : "Iniciar sesión como Promotor"}
-            </h2>
-            <p className="text-muted-foreground">
-              {isSignup 
-                ? "Comparte tus proyectos culturales con el mundo" 
-                : "Gestiona tus eventos y campañas"}
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Correo electrónico
-              </label>
-              <Input
-                type="email"
-                placeholder="tu@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Contraseña
-              </label>
-              <Input
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            <Button type="submit" className="w-full" size="lg">
-              {isSignup ? "Crear cuenta" : "Iniciar sesión"}
-            </Button>
-          </form>
-
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => setIsSignup(!isSignup)}
-              className="text-primary hover:underline text-sm"
-            >
-              {isSignup 
-                ? "¿Ya tienes cuenta? Inicia sesión" 
-                : "¿No tienes cuenta? Regístrate"}
-            </button>
-          </div>
+        <Card>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold text-center">
+              Iniciar Sesión
+            </CardTitle>
+            <CardDescription className="text-center">
+              Accede a tu cuenta de promotor
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="tu@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={loading}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password">Contraseña</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={loading}
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Iniciando sesión...
+                  </>
+                ) : (
+                  "Iniciar Sesión"
+                )}
+              </Button>
+              <div className="mt-4 text-center text-sm">
+                <span className="text-muted-foreground">¿No tienes cuenta? </span>
+                <Link to="/promoter-register" className="text-primary hover:underline">
+                  Regístrate
+                </Link>
+              </div>
+            </form>
+          </CardContent>
         </Card>
       </div>
     </div>
