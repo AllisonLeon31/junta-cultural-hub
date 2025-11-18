@@ -20,6 +20,8 @@ import EventsList from "./pages/creator/EventsList";
 import CreateEvent from "./pages/creator/CreateEvent";
 import EditEvent from "./pages/creator/EditEvent";
 import EventAnalytics from "./pages/creator/EventAnalytics";
+import PromoterRegister from "./pages/PromoterRegister";
+import { RequireAuth } from "./components/auth/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -37,15 +39,51 @@ const App = () => (
           <Route path="/donor-login" element={<DonorLogin />} />
           <Route path="/donor-dashboard" element={<DonorDashboard />} />
           <Route path="/promoter-login" element={<PromoterLogin />} />
+          <Route path="/promoter-register" element={<PromoterRegister />} />
           <Route path="/promoter-dashboard" element={<PromoterDashboard />} />
           <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/preguntas" element={<FAQ />} />
           <Route path="/politicas" element={<Policies />} />
-          <Route path="/creator" element={<Dashboard />} />
-          <Route path="/creator/events" element={<EventsList />} />
-          <Route path="/creator/events/new" element={<CreateEvent />} />
-          <Route path="/creator/events/:slug/edit" element={<EditEvent />} />
-          <Route path="/creator/events/:slug/analytics" element={<EventAnalytics />} />
+          <Route
+            path="/creator"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/creator/events"
+            element={
+              <RequireAuth>
+                <EventsList />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/creator/events/new"
+            element={
+              <RequireAuth>
+                <CreateEvent />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/creator/events/:slug/edit"
+            element={
+              <RequireAuth>
+                <EditEvent />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/creator/events/:slug/analytics"
+            element={
+              <RequireAuth>
+                <EventAnalytics />
+              </RequireAuth>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

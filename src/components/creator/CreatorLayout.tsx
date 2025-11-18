@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   LayoutDashboard, 
@@ -8,9 +8,18 @@ import {
   HelpCircle,
   Plus,
   Menu,
-  User
+  User,
+  LogOut
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface CreatorLayoutProps {
   children: ReactNode;
@@ -25,6 +34,18 @@ const navItems = [
 
 export const CreatorLayout = ({ children }: CreatorLayoutProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      toast.success("Sesión cerrada");
+      navigate("/promoter-login");
+    } catch (error: any) {
+      toast.error("Error al cerrar sesión");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,9 +72,19 @@ export const CreatorLayout = ({ children }: CreatorLayoutProps) => {
             </Link>
           </Button>
 
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={handleLogout}>
+                <LogOut className="mr-2 h-4 w-4" />
+                Cerrar Sesión
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
 
