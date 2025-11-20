@@ -103,7 +103,7 @@ export const Header = () => {
             ) : (
               <Button
                 variant="default"
-                onClick={() => navigate("/promoter-login")}
+                onClick={() => navigate("/user-select")}
               >
                 Iniciar Sesión
               </Button>
