@@ -122,18 +122,18 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 shadow-lg"
-              onClick={() => navigate("/user-select")}
+              onClick={() => navigate("/donor-login")}
             >
-              <Plus className="mr-2 h-5 w-5" />
-              Crea un evento
+              <Heart className="mr-2 h-5 w-5" />
+              Apoya a un evento
             </Button>
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 shadow-lg"
-              onClick={() => navigate("/eventos")}
+              onClick={() => navigate("/promoter-login")}
             >
-              <Heart className="mr-2 h-5 w-5" />
-              Apoya a un evento
+              <Plus className="mr-2 h-5 w-5" />
+              Crea un evento
             </Button>
           </div>
         </div>

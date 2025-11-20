@@ -188,7 +188,7 @@ export const Header = () => {
                 <Button
                   className="w-full"
                   onClick={() => {
-                    navigate("/promoter-login");
+                    navigate("/user-select");
                     setIsMobileMenuOpen(false);
                   }}
                 >

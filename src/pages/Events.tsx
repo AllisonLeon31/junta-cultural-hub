@@ -80,13 +80,12 @@ const Events = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleEventClick = (event: Event) => {
-    navigate(`/evento/${event.slug}`);
-  };
-
-  const handleDonateClick = (event: Event) => {
-    setSelectedEvent(event);
-    setIsModalOpen(true);
+  const handleDonateClick = (id: string) => {
+    const event = events.find((e) => e.slug === id);
+    if (event) {
+      setSelectedEvent(event);
+      setIsModalOpen(true);
+    }
   };
 
   if (loading) {
@@ -161,8 +160,7 @@ const Events = () => {
                   progress={event.goal > 0 ? (event.raised / event.goal) * 100 : 0}
                   donors={event.donors}
                   goal={event.goal}
-                  onViewDetails={() => handleEventClick(event)}
-                  onDonate={() => handleDonateClick(event)}
+                  onViewDetails={handleDonateClick}
                 />
               ))}
             </div>
@@ -182,8 +180,10 @@ const Events = () => {
             subtitle: selectedEvent.subtitle || "",
             category: selectedEvent.category,
             date: selectedEvent.date,
+            time: selectedEvent.time || "Por confirmar",
             location: selectedEvent.location,
             image: selectedEvent.image || "",
+            description: selectedEvent.description || "",
             progress: selectedEvent.goal > 0 ? (selectedEvent.raised / selectedEvent.goal) * 100 : 0,
             donors: selectedEvent.donors,
             goal: selectedEvent.goal,
