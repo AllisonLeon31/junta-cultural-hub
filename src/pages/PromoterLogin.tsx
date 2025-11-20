@@ -18,7 +18,7 @@ const PromoterLogin = () => {
     // Check if user is already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        navigate("/creator");
+        navigate("/studio");
       }
     });
   }, [navigate]);
@@ -36,7 +36,7 @@ const PromoterLogin = () => {
       if (error) throw error;
 
       toast.success("Inicio de sesión exitoso");
-      navigate("/creator");
+      navigate("/studio");
     } catch (error: any) {
       toast.error(error.message || "Error al iniciar sesión");
     } finally {

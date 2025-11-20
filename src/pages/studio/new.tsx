@@ -212,7 +212,15 @@ const CreateEvent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && e.target instanceof HTMLInputElement) {
+                    e.preventDefault();
+                  }
+                }}
+                className="space-y-6"
+              >
                 {currentStep === 1 && (
                   <Card>
                     <CardHeader>
