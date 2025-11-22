@@ -78,6 +78,14 @@ const Index = () => {
     navigate(`/evento/${slug}`);
   };
 
+  const handleDonateClick = (slug: string) => {
+    const event = events.find(e => e.slug === slug);
+    if (event) {
+      setSelectedEvent(event);
+      setIsModalOpen(true);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -199,7 +207,7 @@ const Index = () => {
                   donors={event.donors}
                   goal={event.goal}
                   raised={event.raised}
-                  onViewDetails={handleViewDetails} 
+                  onViewDetails={handleDonateClick} 
                 />
               </div>
             ))}
