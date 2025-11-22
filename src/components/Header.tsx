@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, LayoutDashboard, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -14,21 +16,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [user, setUser] = useState<any>(null);
-
-  useEffect(() => {
-    // Check current session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+  const { user, role } = useAuth();
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -87,15 +75,26 @@ export const Header = () => {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <User className="h-5 w-5" />
+                  <Button variant="outline" className="gap-2">
+                    <User className="h-4 w-4" />
+                    <span className="hidden lg:inline">Mi Cuenta</span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => navigate("/studio")}>
-                    Creator Studio
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout}>
+                <DropdownMenuContent align="end" className="w-48">
+                  {role === "promoter" ? (
+                    <DropdownMenuItem onClick={() => navigate("/studio")} className="cursor-pointer">
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      Creator Studio
+                    </DropdownMenuItem>
+                  ) : (
+                    <DropdownMenuItem onClick={() => navigate("/donor-dashboard")} className="cursor-pointer">
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      Mi Panel
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive focus:text-destructive">
+                    <LogOut className="mr-2 h-4 w-4" />
                     Cerrar Sesión
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -164,15 +163,29 @@ export const Header = () => {
             <div className="px-4">
               {user ? (
                 <div className="space-y-2">
-                  <Button
-                    className="w-full"
-                    onClick={() => {
-                      navigate("/studio");
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    Creator Studio
-                  </Button>
+                  {role === "promoter" ? (
+                    <Button
+                      className="w-full"
+                      onClick={() => {
+                        navigate("/studio");
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      Creator Studio
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-full"
+                      onClick={() => {
+                        navigate("/donor-dashboard");
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      Mi Panel
+                    </Button>
+                  )}
                   <Button
                     variant="outline"
                     className="w-full"
@@ -181,6 +194,7 @@ export const Header = () => {
                       setIsMobileMenuOpen(false);
                     }}
                   >
+                    <LogOut className="mr-2 h-4 w-4" />
                     Cerrar Sesión
                   </Button>
                 </div>
