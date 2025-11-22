@@ -35,7 +35,14 @@ const App = () => (
           <Route path="/evento/:eventId" element={<EventDetail />} />
           <Route path="/user-select" element={<UserSelect />} />
           <Route path="/donor-login" element={<DonorLogin />} />
-          <Route path="/donor-dashboard" element={<DonorDashboard />} />
+          <Route 
+            path="/donor-dashboard" 
+            element={
+              <RequireAuth allowedRole="donor">
+                <DonorDashboard />
+              </RequireAuth>
+            } 
+          />
           <Route path="/promoter-login" element={<PromoterLogin />} />
           <Route path="/promoter-register" element={<PromoterRegister />} />
           <Route path="/promoter-dashboard" element={<PromoterDashboard />} />
@@ -45,7 +52,7 @@ const App = () => (
           <Route
             path="/studio"
             element={
-              <RequireAuth>
+              <RequireAuth allowedRole="promoter">
                 <StudioDashboard />
               </RequireAuth>
             }
@@ -53,7 +60,7 @@ const App = () => (
           <Route
             path="/studio/new"
             element={
-              <RequireAuth>
+              <RequireAuth allowedRole="promoter">
                 <CreateStudioEvent />
               </RequireAuth>
             }
@@ -61,7 +68,7 @@ const App = () => (
           <Route
             path="/studio/edit/:id"
             element={
-              <RequireAuth>
+              <RequireAuth allowedRole="promoter">
                 <EditStudioEvent />
               </RequireAuth>
             }

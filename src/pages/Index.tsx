@@ -74,8 +74,8 @@ const Index = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleViewDetails = (id: string) => {
-    navigate(`/evento/${id}`);
+  const handleViewDetails = (slug: string) => {
+    navigate(`/evento/${slug}`);
   };
 
   if (loading) {
@@ -187,10 +187,18 @@ const Index = () => {
             {filteredEvents.slice(0, 3).map((event) => (
               <div key={event.id} className="animate-fade-in">
                 <EventCard 
-                  {...event}
+                  id={event.slug}
+                  slug={event.slug}
+                  title={event.title}
                   subtitle={event.subtitle || ""}
+                  category={event.category}
+                  date={event.date}
+                  location={event.location}
                   image={event.image || ""}
                   progress={Math.round((event.raised / event.goal) * 100)}
+                  donors={event.donors}
+                  goal={event.goal}
+                  raised={event.raised}
                   onViewDetails={handleViewDetails} 
                 />
               </div>

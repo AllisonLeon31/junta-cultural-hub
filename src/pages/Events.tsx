@@ -151,6 +151,7 @@ const Events = () => {
                 <EventCard
                   key={event.id}
                   id={event.slug}
+                  slug={event.slug}
                   title={event.title}
                   subtitle={event.subtitle || ""}
                   category={event.category}
@@ -160,6 +161,7 @@ const Events = () => {
                   progress={event.goal > 0 ? (event.raised / event.goal) * 100 : 0}
                   donors={event.donors}
                   goal={event.goal}
+                  raised={event.raised}
                   onViewDetails={handleDonateClick}
                 />
               ))}

@@ -215,7 +215,8 @@ const CreateEvent = () => {
               <form 
                 onSubmit={form.handleSubmit(onSubmit)} 
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' && e.target instanceof HTMLInputElement) {
+                  // Prevent form submission on Enter key in any input field (except textareas where Enter creates new lines)
+                  if (e.key === 'Enter' && !(e.target instanceof HTMLTextAreaElement)) {
                     e.preventDefault();
                   }
                 }}

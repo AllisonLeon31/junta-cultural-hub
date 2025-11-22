@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const DonorLogin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSignup, setIsSignup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    // Check if already logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user?.user_metadata?.role === "donor") {
+        navigate("/donor-dashboard");
+      }
+    });
+  }, [navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !password) {
@@ -20,12 +31,48 @@ const DonorLogin = () => {
       return;
     }
 
-    // Simulación de login/registro
-    localStorage.setItem("userType", "donor");
-    localStorage.setItem("userEmail", email);
-    
-    toast.success(isSignup ? "¡Cuenta creada exitosamente!" : "¡Bienvenido de nuevo!");
-    navigate("/donor-dashboard");
+    setLoading(true);
+
+    try {
+      if (isSignup) {
+        // Sign up new donor
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              role: "donor"
+            },
+            emailRedirectTo: `${window.location.origin}/donor-dashboard`
+          }
+        });
+
+        if (error) throw error;
+        toast.success("¡Cuenta creada exitosamente! Revisa tu correo.");
+      } else {
+        // Sign in existing user
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (error) throw error;
+
+        // Check if user is a donor
+        if (data.user?.user_metadata?.role !== "donor") {
+          await supabase.auth.signOut();
+          toast.error("Esta cuenta no es de donador. Por favor usa la opción de promotor.");
+          return;
+        }
+
+        toast.success("¡Bienvenido de nuevo!");
+        navigate("/donor-dashboard");
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Error al iniciar sesión");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -66,6 +113,7 @@ const DonorLogin = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                disabled={loading}
               />
             </div>
 
@@ -79,11 +127,19 @@ const DonorLogin = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                disabled={loading}
               />
             </div>
 
-            <Button type="submit" className="w-full" size="lg">
-              {isSignup ? "Crear cuenta" : "Iniciar sesión"}
+            <Button type="submit" className="w-full" size="lg" disabled={loading}>
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  {isSignup ? "Creando cuenta..." : "Iniciando sesión..."}
+                </>
+              ) : (
+                isSignup ? "Crear cuenta" : "Iniciar sesión"
+              )}
             </Button>
           </form>
 
@@ -91,6 +147,7 @@ const DonorLogin = () => {
             <button
               onClick={() => setIsSignup(!isSignup)}
               className="text-primary hover:underline text-sm"
+              disabled={loading}
             >
               {isSignup 
                 ? "¿Ya tienes cuenta? Inicia sesión" 

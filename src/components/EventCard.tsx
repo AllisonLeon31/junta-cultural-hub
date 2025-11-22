@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 interface EventCardProps {
   id: string;
+  slug: string;
   title: string;
   subtitle: string;
   category: string;
@@ -15,11 +16,12 @@ interface EventCardProps {
   donors: number;
   goal?: number;
   raised?: number;
-  onViewDetails: (id: string) => void;
+  onViewDetails: (slug: string) => void;
 }
 
 export const EventCard = ({
   id,
+  slug,
   title,
   subtitle,
   category,
@@ -66,7 +68,7 @@ export const EventCard = ({
       <div className="p-5">
         <h3 
           className="text-xl font-semibold mb-2 text-foreground cursor-pointer hover:text-primary transition-colors"
-          onClick={() => navigate(`/evento/${id}`)}
+          onClick={() => navigate(`/evento/${slug}`)}
         >
           {title}
         </h3>
@@ -101,13 +103,13 @@ export const EventCard = ({
           <Button 
             className="flex-1 shadow-sm" 
             variant="outline"
-            onClick={() => navigate(`/evento/${id}`)}
+            onClick={() => navigate(`/evento/${slug}`)}
           >
             Más información
           </Button>
           <Button 
             className="flex-1 shadow-sm" 
-            onClick={() => onViewDetails(id)}
+            onClick={() => onViewDetails(slug)}
           >
             Donar
           </Button>
