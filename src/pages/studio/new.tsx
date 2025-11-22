@@ -213,7 +213,6 @@ const CreateEvent = () => {
           <div>
             <Form {...form}>
               <form 
-                onSubmit={form.handleSubmit(onSubmit)} 
                 onKeyDown={(e) => {
                   // Prevent form submission on Enter key in any input field (except textareas where Enter creates new lines)
                   if (e.key === 'Enter' && !(e.target instanceof HTMLTextAreaElement)) {
@@ -487,8 +486,12 @@ const CreateEvent = () => {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   ) : (
-                    <Button type="submit" disabled={isSubmitting}>
-                      {isSubmitting ? "Creando..." : "Crear Evento"}
+                    <Button
+                      type="button"
+                      onClick={() => form.handleSubmit(onSubmit)()}
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Publicando..." : "Publicar evento"}
                       <Check className="ml-2 h-4 w-4" />
                     </Button>
                   )}
