@@ -1,33 +1,13 @@
-import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import { User } from "@supabase/supabase-js";
+import { useAuth, UserRole } from "@/hooks/useAuth";
 
 interface RequireAuthProps {
   children: React.ReactNode;
+  allowedRole?: UserRole;
 }
 
-export const RequireAuth = ({ children }: RequireAuthProps) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Check current session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+export const RequireAuth = ({ children, allowedRole }: RequireAuthProps) => {
+  const { user, role, loading } = useAuth();
 
   if (loading) {
     return (
@@ -37,8 +17,23 @@ export const RequireAuth = ({ children }: RequireAuthProps) => {
     );
   }
 
+  // Not authenticated - redirect to role selection
   if (!user) {
-    return <Navigate to="/promoter-login" replace />;
+    return <Navigate to="/user-select" replace />;
+  }
+
+  // Check role-based access
+  if (allowedRole && role !== allowedRole) {
+    // If promoter tries to access donor routes, redirect to studio
+    if (role === "promoter") {
+      return <Navigate to="/studio" replace />;
+    }
+    // If donor tries to access promoter routes, redirect to donor dashboard
+    if (role === "donor") {
+      return <Navigate to="/donor-dashboard" replace />;
+    }
+    // No role set - redirect to role selection
+    return <Navigate to="/user-select" replace />;
   }
 
   return <>{children}</>;

@@ -17,7 +17,7 @@ const PromoterLogin = () => {
   useEffect(() => {
     // Check if user is already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
+      if (session?.user?.user_metadata?.role === "promoter") {
         navigate("/studio");
       }
     });
@@ -28,12 +28,19 @@ const PromoterLogin = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) throw error;
+
+      // Check if user is a promoter
+      if (data.user?.user_metadata?.role !== "promoter") {
+        await supabase.auth.signOut();
+        toast.error("Esta cuenta no es de promotor. Por favor usa la opción de donador.");
+        return;
+      }
 
       toast.success("Inicio de sesión exitoso");
       navigate("/studio");

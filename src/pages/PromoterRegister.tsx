@@ -37,7 +37,10 @@ export default function PromoterRegister() {
         email: formData.email,
         password: formData.password,
         options: {
-          emailRedirectTo: `${window.location.origin}/creator`,
+          data: {
+            role: "promoter"
+          },
+          emailRedirectTo: `${window.location.origin}/studio`,
         },
       });
 
